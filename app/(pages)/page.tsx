@@ -1,15 +1,15 @@
 import Link from 'next/link';
-import Grid from '../components/Grid';
 import List from '../components/List';
 import Modal from '../components/Modal';
 import React from 'react';
 import BrandLine from '../components/BrandLine';
 import recipes from '../dummy/recipes';
-import HeaderText from '../components/atoms/HeaderText';
-import RecipeList from '../components/RecipeList';
 import cuisines from '../dummy/cuisines';
 import diets from '../dummy/diets';
 import mealTypes from '../dummy/mealTypes';
+import LargeGrid from '../components/organisms/LargeGrid';
+import SmallGrid from '../components/organisms/SmallGrid';
+import MediumGrid from '../components/organisms/MediumGrid';
 
 export default function Home() {
 
@@ -17,20 +17,20 @@ export default function Home() {
     <main className="min-h-screen bg-white text-slate-600">
       <BrandLine imgPath="./brand.svg" />
       <section>
-        <Grid headerText="Find your flavor in every food category" data={diets} type="large"/>
+        <LargeGrid headerText="Diets" data={diets}/>
       </section>
 
       <section>
-        <Grid headerText="Find your flavor in every food category" data={mealTypes} type="small"/>
+        <SmallGrid headerText="Meal Types" data={mealTypes}/>
 
       </section>
 
       <section>
-        <div className='flex flex-row'>
-          <div className='w-2/3 pl-28 pr-14'>
-            <RecipeList headerText="Trending Recipes" data={recipes} />
+        <div className='flex flex-col md:flex-row'>
+          <div className='w-full md:w-2/3'>
+          <MediumGrid headerText="Trending Recipes" data={recipes}/>
           </div>
-          <div className='w-1/3 pr-28'>
+          <div className='w-full md:w-1/3'>
             <List headerText="Savor every cuisine" data={cuisines} />
           </div>
         </div>

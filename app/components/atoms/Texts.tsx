@@ -10,7 +10,7 @@ const RegularText = ({text, className = ""}:TextProps) => {
 
 const HeadingText = ({text, className = ""}:TextProps) => {
     return(
-        <h2 className={`text-s md:text-2xl ${className}`}>{text}</h2>
+        <h2 className={`text-lg md:text-2xl font-bold ${className}`}>{text}</h2>
     )
 }
 
