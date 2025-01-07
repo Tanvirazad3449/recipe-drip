@@ -1,16 +1,16 @@
 const mealTypes = [
-    { id: 1, name: "Main Course" },
-    { id: 2, name: "Snack" },
-    { id: 3, name: "Dessert" },
-    { id: 4, name: "Appetizer" },
-    { id: 5, name: "Salad" },
-    { id: 6, name: "Bread" },
-    { id: 7, name: "Breakfast" },
-    { id: 8, name: "Soup" },
-    { id: 9, name: "Drink" },
-    { id: 10, name: "Marinade" },
-    { id: 11, name: "Sauce" },
-    { id: 12, name: "Beverage" },
-  ];
-  
-  export default mealTypes
+  { id: 1, imageId: 1, mealTypeName: "Main Course" },
+  { id: 2, imageId: 2, mealTypeName: "Snack" },
+  { id: 3, imageId: 3, mealTypeName: "Dessert" },
+  { id: 4, imageId: 4, mealTypeName: "Appetizer" },
+  { id: 5, imageId: 5, mealTypeName: "Salad" },
+  { id: 6, imageId: 6, mealTypeName: "Bread" },
+  { id: 7, imageId: 7, mealTypeName: "Breakfast" },
+  { id: 8, imageId: 8, mealTypeName: "Soup" },
+  { id: 9, imageId: 9, mealTypeName: "Drink" },
+  { id: 10, imageId: 10, mealTypeName: "Marinade" },
+  { id: 11, imageId: 11, mealTypeName: "Sauce" },
+  { id: 12, imageId: 12, mealTypeName: "Beverage" },
+];
+
+export default mealTypes;

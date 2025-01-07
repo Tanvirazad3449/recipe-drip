@@ -1,8 +1,57 @@
-export interface Recipe {
-    readyInMinutes: number;
-    sourceUrl: string;
-    image: string;
-    servings: number;
-    id: number;
-    title: string;
-  }
+import { Ingredient } from "./Ingredient";
+
+interface RecipeDetails {
+  vegetarian: boolean;
+  vegan: boolean;
+  glutenFree: boolean;
+  dairyFree: boolean;
+  veryHealthy: boolean;
+  cheap: boolean;
+  veryPopular: boolean;
+  sustainable: boolean;
+  lowFodmap: boolean;
+  weightWatcherSmartPoints: number;
+  gaps: string;
+  preparationMinutes: number | null;
+  cookingMinutes: number | null;
+  aggregateLikes: number;
+  healthScore: number;
+  creditsText: string;
+  sourceName: string;
+  pricePerServing: number;
+  extendedIngredients: Ingredient[];
+  id: number;
+  title: string;
+  readyInMinutes: number;
+  servings: number;
+  sourceUrl: string;
+  image: string;
+  imageType: string;
+  summary: string;
+  cuisines: string[];
+  dishTypes: string[];
+  diets: string[];
+  occasions: string[];
+  instructions: string;
+  analyzedInstructions: {
+    name: string;
+    steps: {
+      number: number;
+      step: string;
+      ingredients: Ingredient[];
+      equipment: any[];
+    }[];
+  }[];
+}
+
+interface Recipe {
+  id: number;
+}
+
+interface Recipes {
+  data: RecipeDetails;
+}
+
+export type {
+  RecipeDetails, Recipes, Recipe
+}

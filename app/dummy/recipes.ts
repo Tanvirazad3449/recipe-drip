@@ -1,100 +1,65 @@
 const recipes = [
-    {
-        "readyInMinutes": 35,
-        "sourceUrl": "http://cooking2perfection.blogspot.com/2012/11/easy-homemade-rice-and-beans.html",
-        "image": "easy-homemade-rice-and-beans-716627.jpg",
-        "servings": 2,
-        "id": 1,
-        "title": "Easy Homemade Rice and Beans"
-    },
-    {
-        "readyInMinutes": 45,
-        "sourceUrl": "https://www.foodista.com/recipe/YX5XP75N/herbivoracious-white-bean-and-kale-soup",
-        "image": "Herbivoracious-White-Bean-and-Kale-Soup-646738.jpg",
-        "servings": 6,
-        "id": 2,
-        "title": "Herbivoracious' White Bean and Kale Soup"
-    },
-    {
-        "readyInMinutes": 30,
-        "sourceUrl": "https://www.pinkwhen.com/cheesy-chicken-enchilada-quinoa-casserole/",
-        "image": "cheesy-chicken-enchilada-quinoa-casserole-715421.jpg",
-        "servings": 4,
-        "id": 3,
-        "title": "Cheesy Chicken Enchilada Quinoa Casserole"
-    },
-    {
-        "readyInMinutes": 45,
-        "sourceUrl": "https://www.foodista.com/recipe/7TTSVX56/salmon-with-roasted-vegetables",
-        "image": "Salmon-with-roasted-vegetables-659135.jpg",
-        "servings": 2,
-        "id": 4,
-        "title": "Salmon with roasted vegetables"
-    },
-    {
-        "readyInMinutes": 35,
-        "sourceUrl": "http://cooking2perfection.blogspot.com/2012/11/easy-homemade-rice-and-beans.html",
-        "image": "easy-homemade-rice-and-bedfdfans-716627.jpg",
-        "servings": 2,
-        "id": 1,
-        "title": "Easy Homemade Rice and Beans"
-    },
-    {
-        "readyInMinutes": 45,
-        "sourceUrl": "https://www.foodista.com/recipe/YX5XP75N/herbivoracious-white-bean-and-kale-soup",
-        "image": "Herbivoracious-White-Beafffn-and-Kale-Soup-646738.jpg",
-        "servings": 6,
-        "id": 2,
-        "title": "Herbivoracious' White Bean and Kale Soup"
-    },
-    {
-        "readyInMinutes": 30,
-        "sourceUrl": "https://www.pinkwhen.com/cheesy-chicken-enchilada-quinoa-casserole/",
-        "image": "cheesy-chicken-enchiladfdsda-quinoa-casserole-715421.jpg",
-        "servings": 4,
-        "id": 3,
-        "title": "Cheesy Chicken Enchilada Quinoa Casserole"
-    },
-    {
-        "readyInMinutes": 45,
-        "sourceUrl": "https://www.foodista.com/recipe/7TTSVX56/salmon-with-roasted-vegetables",
-        "image": "Salmon-with-roasted-sdsdvegetables-659135.jpg",
-        "servings": 2,
-        "id": 4,
-        "title": "Salmon with roasted vegetables"
-    },
-    {
-        "readyInMinutes": 35,
-        "sourceUrl": "http://cooking2perfection.blogspot.com/2012/11/easy-homemade-rice-and-beans.html",
-        "image": "easy-homemade-ricsdsde-and-beans-716627.jpg",
-        "servings": 2,
-        "id": 1,
-        "title": "Easy Homemade Rice and Beans"
-    },
-    {
-        "readyInMinutes": 45,
-        "sourceUrl": "https://www.foodista.com/recipe/YX5XP75N/herbivoracious-white-bean-and-kale-soup",
-        "image": "Herbivoracious-Whitsdsde-Bean-and-Kale-Soup-646738.jpg",
-        "servings": 6,
-        "id": 2,
-        "title": "Herbivoracious' White Bean and Kale Soup"
-    },
-    {
-        "readyInMinutes": 30,
-        "sourceUrl": "https://www.pinkwhen.com/cheesy-chicken-enchilada-quinoa-casserole/",
-        "image": "cheesy-chicken-enchilada-sdsdquinoa-casserole-715421.jpg",
-        "servings": 4,
-        "id": 3,
-        "title": "Cheesy Chicken Enchilada Quinoa Casserole"
-    },
-    {
-        "readyInMinutes": 45,
-        "sourceUrl": "https://www.foodista.com/recipe/7TTSVX56/salmon-with-roasted-vegetables",
-        "image": "Salmon-with-roasted-vegetabssdles-659135.jpg",
-        "servings": 2,
-        "id": 4,
-        "title": "Salmon with roasted vegetables"
-    }
-]
-
-export default recipes
+  {
+    "id": 1132339,
+    "title": "Garlic Lemon Chili Broccoli",
+    "image": "https://img.spoonacular.com/recipes/1132339-312x231.jpg",
+    "imageType": "jpg"
+},
+{
+    "id": 1046982,
+    "title": "How to Make the Perfect Sweet Potato Sloppy Joes",
+    "image": "https://img.spoonacular.com/recipes/1046982-312x231.jpg",
+    "imageType": "jpg"
+},
+{
+    "id": 642540,
+    "title": "Falafel Burgers",
+    "image": "https://img.spoonacular.com/recipes/642540-312x231.jpg",
+    "imageType": "jpg"
+},
+{
+    "id": 639392,
+    "title": "Chunky Two-Bean Chili",
+    "image": "https://img.spoonacular.com/recipes/639392-312x231.jpg",
+    "imageType": "jpg"
+},
+{
+    "id": 644581,
+    "title": "Ginger Garlic Chili Salmon",
+    "image": "https://img.spoonacular.com/recipes/644581-312x231.jpg",
+    "imageType": "jpg"
+},
+{
+    "id": 633837,
+    "title": "Baked Sweet Potato Fries",
+    "image": "https://img.spoonacular.com/recipes/633837-312x231.jpg",
+    "imageType": "jpg"
+},
+{
+    "id": 660395,
+    "title": "Smokey Rainbow Chili",
+    "image": "https://img.spoonacular.com/recipes/660395-312x231.jpg",
+    "imageType": "jpg"
+},
+{
+    "id": 638552,
+    "title": "Chili chops with cauliflower salad",
+    "image": "https://img.spoonacular.com/recipes/638552-312x231.jpg",
+    "imageType": "jpg"
+},
+{
+    "id": 638764,
+    "title": "Chipotle Turkey Chili",
+    "image": "https://img.spoonacular.com/recipes/638764-312x231.jpg",
+    "imageType": "jpg"
+},
+{
+    "id": 636573,
+    "title": "Butternut Squash and Black Bean Chili with Bulgar",
+    "image": "https://img.spoonacular.com/recipes/636573-312x231.jpg",
+    "imageType": "jpg"
+}
+];
+  
+  export default recipes;
+  

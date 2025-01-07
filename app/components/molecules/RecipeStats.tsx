@@ -1,25 +1,14 @@
+import { GridDataType } from "@/app/interfaces/GridDataType"
+import { SmallText } from "../atoms/Texts"
 
-function RecipeStats({recipe}:any) {
+interface RecipeStatsProps{
+    recipe: GridDataType;
+}
+function RecipeStats({recipe}:RecipeStatsProps) {
     return (
-        <div className='flex flex-row items-center justify-between border-b-2 border-b-brandColor-200 pb-1 px-2 w-full'>
-
-            <div className="flex flex-row items-center space-x-2">
-                <img
-                    src={`/t.png`}
-                    alt="time icon"
-                    className="w-3 h-3"
-                />
-                <p className="text-brandColor text-sm ">{recipe.readyInMinutes} min</p>
-            </div>
-
-            <div className="flex flex-row items-center space-x-2">
-                <img
-                    src={`/s.png`}
-                    alt="time icon"
-                    className="w-4 h-4"
-                />
-                <p className="text-brandColor text-sm">{recipe.servings} servings</p>
-            </div>
+        <div className='flex flex-row items-center justify-between border-b-2 border-b-slate-300 pb-1 w-full'>
+            <SmallText text={`${recipe.readyInMinutes} min`}/>
+            <SmallText text={`${recipe.servings} servings`}/>
         </div>
     )
 }

@@ -1,4 +1,4 @@
-export interface Grid {
+export interface DietType {
   id: number;
   name: string;
 }
