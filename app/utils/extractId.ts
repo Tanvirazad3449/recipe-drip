@@ -1,5 +1,5 @@
-const extractId = (url: string): number => {
-    return parseInt(url?.split('/')[2])
+const extractId = (url: string): string => {
+    return url?.split('/')[2]
 };
 
 export {

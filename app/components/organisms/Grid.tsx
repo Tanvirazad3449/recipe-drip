@@ -1,10 +1,9 @@
 "use client";
 
 import React, { useState } from "react";
-import ComponentHeader from "../molecules/ComponentHeader";
+import SectionHeader from "../molecules/SectionHeader";
 import GridItem from "../molecules/GridItem";
 import { GridDataType } from "@/app/interfaces/GridDataType";
-
 
 type GridProps = {
   headerText: string;
@@ -14,15 +13,17 @@ type GridProps = {
 };
 
 const Grid: React.FC<GridProps> = ({ headerText, data, cssClass, minDisplayItems }) => {
-  const [showAll, setShowAll] = useState(false);
-  const itemsToShow = showAll ? data : data.slice(0, minDisplayItems);
-
+  const [isExpanded, setIsExpanded] = useState(false);
+  const itemsToShow = isExpanded ? data : data.slice(0, minDisplayItems);
+  function toggleItemView():void{
+    setIsExpanded((prev)=>!prev)
+  }
   return (
     <div>
-      <ComponentHeader
+      <SectionHeader
         headerText={headerText}
-        toggle={() => setShowAll(!showAll)}
-        showAll={showAll}
+        toggleItemView={toggleItemView}
+        isExpanded={isExpanded}
       />
       <div className={cssClass}>
         {itemsToShow.map((gridObj: GridDataType) => <GridItem key={gridObj.id} gridObj={gridObj} />)}

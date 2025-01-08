@@ -6,7 +6,7 @@ interface ContainerProps {
   
 const Container = ({ children, className = "" }: ContainerProps) => {
     return (
-        <div className={`hover:bg-slate-100 cursor-pointer bg-slate-50 rounded-lg ${className}`}>
+        <div className={`hover:bg-brandColor-100 cursor-pointer ${className}`}>
             {children}
         </div>
     )

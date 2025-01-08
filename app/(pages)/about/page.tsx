@@ -30,7 +30,7 @@ export default function About() {
             <h2 className="text-2xl font-semibold text-center mb-8">What We Offer</h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {/* Feature 1 */}
-              <div className="bg-white p-6 rounded-lg shadow-md text-center">
+              <div className="bg-white p-6  shadow-md text-center">
                 <h3 className="text-lg font-medium mb-2">Discover Recipes</h3>
                 <p className="text-gray-600">
                   Explore a vast collection of recipes curated by our community.
@@ -38,7 +38,7 @@ export default function About() {
               </div>
   
               {/* Feature 2 */}
-              <div className="bg-white p-6 rounded-lg shadow-md text-center">
+              <div className="bg-white p-6  shadow-md text-center">
                 <h3 className="text-lg font-medium mb-2">Create Your Own</h3>
                 <p className="text-gray-600">
                   Share your recipes and inspire others with your culinary expertise.
@@ -46,7 +46,7 @@ export default function About() {
               </div>
   
               {/* Feature 3 */}
-              <div className="bg-white p-6 rounded-lg shadow-md text-center">
+              <div className="bg-white p-6  shadow-md text-center">
                 <h3 className="text-lg font-medium mb-2">Connect & Share</h3>
                 <p className="text-gray-600">
                   Join a global community of food lovers and connect over your shared passion for cooking.
@@ -63,7 +63,7 @@ export default function About() {
             <p className="mb-6">
               Become a part of a growing community of food enthusiasts who love to share, explore, and create.
             </p>
-            <button className="px-6 py-3 bg-white text-blue-500 font-medium rounded-lg shadow-md hover:bg-slate-100">
+            <button className="px-6 py-3 bg-white text-blue-500 font-medium  shadow-md hover:bg-slate-100">
               Get Started
             </button>
           </div>

@@ -7,17 +7,19 @@ const LargeIcon = ({ iconSrc, iconName }: IconProps) => {
 
     if (iconName === null || iconName === "img.spoonacular.") {
         return (
-            <div className="rounded-full w-16 md:w-10 h-16 md:h-10 bg-gray-200"></div>
+            <img
+                src={'/no-image-found-square.jpg'}
+                className="w-10 h-auto max-h-10 md:w-10 md:h-auto object-contain"
+                alt="Icon"
+            /> 
         )
     }
     return (
-        <div className="rounded-lg w-16 md:w-10 h-16 md:h-10 overflow-hidden flex items-center justify-center">
-            <img
+         <img
                 src={iconSrc}
-                className="w-full h-full object-contain"
+                className="w-10 h-auto max-h-10 md:w-10 md:h-auto object-contain"
                 alt="Icon"
-            />
-        </div>
+            /> 
     )
 }
 

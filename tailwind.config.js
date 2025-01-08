@@ -12,6 +12,7 @@ module.exports = {
         foreground: "var(--foreground)",
         brandColor: {
           DEFAULT: '#783c5c', // base color
+          50: '#783c5c05', // 5% opacity
           100: '#783c5c10', // 10% opacity
           200: '#783c5c20', // 20% opacity
           300: '#783c5c30', // 30% opacity
@@ -24,7 +25,9 @@ module.exports = {
         },
       },
       fontFamily: {
-        sans: ['var(--font-inter)'],
+        butterChicken: ['var(--font-butter-chicken)', 'sans-serif'], // Fallback font
+        gentiumPlus: ['var(--font-gentium-plus)', 'cursive'], // Fallback font
+        montserrat: ['var(--font-montserrat)', 'sans-serif']
       }}
   },
   plugins: [],

@@ -46,10 +46,14 @@ interface RecipeDetails {
 
 interface Recipe {
   id: number;
+  title: string;
+  image: string;
+  imageType: string;
 }
 
 interface Recipes {
-  data: RecipeDetails;
+  results: Recipe;
+  
 }
 
 export type {

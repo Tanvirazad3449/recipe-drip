@@ -1,10 +1,7 @@
 import Link from "next/link"
 import { Container } from "../atoms/Container"
-import RecipeStats from "./RecipeStats"
 import { RegularText, SmallText } from "../atoms/Texts"
-import { LargeIcon } from "../atoms/Icon"
-import { LargeImage, MediumImage } from "../atoms/Image"
-import { GridDataType } from "@/app/interfaces/GridDataType"
+import { LargeIcon } from "../atoms/Icons"
 import { CuisineType } from "@/app/interfaces/CuisineType"
 import { Ingredient } from "@/app/interfaces/Ingredient"
 import capitalize from "@/app/utils/capitalize"
@@ -14,28 +11,33 @@ interface p {
 }
 const ListItems: React.FC<p> = ({ listObj }) => {
 
-  if ("cuisineName" in listObj) {    
+  if ("cuisineName" in listObj) {
+    // Cuisine Object
     return (
-      <Link href={`/recipe/${listObj.id}`}>
-        <Container key={listObj.id} className="flex items-center justify-start p-4 mb-2">
+      <Link href={`recipes/complexSearch?cuisine=${listObj.cuisineName}`}>
+        <Container key={listObj.id} className="flex items-center justify-start p-4 mb-2 border border-brandColor-200">
           <LargeIcon iconSrc={`/countries/${listObj.imageId}.png`} />
-          <RegularText text={listObj.cuisineName} className="ml-2" />
+          <RegularText text={listObj.cuisineName} className="ml-2 font-bold" />
         </Container>
       </Link>
     )
   }
 
-  if ("name" in listObj) {    
+  if ("name" in listObj) {
+    // Ingredient Object
+    // https://api.spoonacular.com/recipes/findByIngredients/ingredients=apple
     return (
-      <Link href={`/recipe/${listObj.id}`}>
-        <div key={listObj.id} className="bg-white hover:bg-slate-100 flex items-center justify-start p-4 border-b-2 border-b-gray-200">
-          <LargeIcon iconSrc={`https://spoonacular.com/cdn/ingredients_100x100/${listObj.image}`} iconName={listObj.image}/>
-          <div>
+      <Link href={`/recipes/${listObj.id}`}>
+        <Container key={listObj.id} className="flex items-center justify-start p-4 mb-2 border border-brandColor-200">
+          <div className="w-1/12">
 
-          <RegularText text={capitalize(listObj.name)} className="ml-2" />
-          <SmallText text={listObj.original} className="ml-2"/>
+            <LargeIcon iconSrc={`https://spoonacular.com/cdn/ingredients_100x100/${listObj.image}`} iconName={listObj.image} />
           </div>
-        </div>
+          <div className="w-11/12 ml-2">
+            <RegularText text={capitalize(listObj.name)} className="ml-2 font-bold" />
+            <RegularText text={listObj.original} className="ml-2" />
+          </div>
+        </Container>
       </Link>
     )
   }

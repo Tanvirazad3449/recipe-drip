@@ -1,35 +1,36 @@
 import { TextProps } from "@/app/interfaces/TextProps"
 import parse from 'html-react-parser';
-const textClass = "text-slate-600";
-const textClassLight = "text-slate-500";
+const textClass = "text-slate-800";
+const textClassLight = "text-slate-600";
 
 const RegularText = ({text, className = ""}:TextProps) => {
     return(
-        <p className={`font-serif font-medium ${textClass} ${className}`}>{text}</p>
+        <p className={`font-gentiumPlus ${textClass} ${className}`}>{text}</p>
     )
 }
 
 const HeadingText = ({text, className = ""}:TextProps) => {
     return(
-        <h1 className={`text-xl ${textClass} md:text-2xl font-sans font-bold my-2 ${className}`}>{text}</h1>
+        <h1 className={`m-0 text-2xl md:text-3xl ${textClass} font-montserrat ${className}`}>{text}</h1>
     )
 }
 
 const SubHeadingText = ({text, className = ""}:TextProps) => {
     return(
-        <h2 className={`text-lg ${textClass} md:text-xl font-serif font-bold ${className}`}>{text}</h2>
+        <h1 className={`text-2xl md:text-3xl ${textClass} font-gentiumPlus font-bold ${className}`}>{text}</h1>
     )
 }
 
+
 const SmallText = ({text, className = ""}:TextProps) => {
     return(
-        <p className={`text-sm ${textClassLight} font-sans font-thin ${className}`}>{text}</p>
+        <p className={`${textClassLight} text-sm font-montserrat ${className}`}>{text}</p>
     )
 }
 
 const RegularTextHTML = ({text, className = ""}:TextProps) => {
     return(
-        <div className={`${textClass} font-serif text-justify ${className}`}>
+        <div className={`${textClass} font-gentiumPlus text-justify ${className}`}>
             {parse(text || "")}
         </div>
     )
@@ -39,7 +40,7 @@ const RegularTextHTML = ({text, className = ""}:TextProps) => {
 export {
     RegularText,
     HeadingText,
-    SubHeadingText,
     SmallText,
-    RegularTextHTML
+    RegularTextHTML,
+    SubHeadingText
 }

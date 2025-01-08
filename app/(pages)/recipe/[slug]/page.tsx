@@ -3,12 +3,12 @@ import { fetchRecipeInformation, fetchSimilarRecipes } from '@/app/api/spoonacul
 import { extractId } from '@/app/utils/extractId';
 import { usePathname } from 'next/navigation';
 import React, { useEffect, useState } from 'react';
-import { HeadingText, RegularText, RegularTextHTML } from '@/app/components/atoms/Texts';
-import Table from '@/app/components/organisms/Table';
+import { HeadingText, RegularText, RegularTextHTML, SubHeadingText } from '@/app/components/atoms/Texts';
+import Table from '@/app/components/atoms/Tables';
 import { TableRowKeyValuePair } from '@/app/components/molecules/TableRow';
 import { Recipe, RecipeDetails } from '@/app/interfaces/Recipe';
 import List from '@/app/components/organisms/List';
-import { BannerImage } from '@/app/components/atoms/Image';
+import { BannerImage } from '@/app/components/atoms/Images';
 import Grid from '@/app/components/organisms/Grid';
 import { gridClasses } from '@/app/css/gridClasses';
 
@@ -48,17 +48,16 @@ const RecipeInformation: React.FC = () => {
   }
 
   if (!recipeDetails) {
-    return <p>Loading...</p>;
+    return <div className='bg-brandColor-100 h-screen w-screen'></div>;
   }
 
   return (
-    <div className='flex flex-row px-28 py-8'>
-{/* <p>{JSON.stringify(similarRecipes)}</p> */}
-      <div className='w-2/3 pr-16 pt-6'>
+    <div className='flex flex-col md:flex-row px-4 md:px-28 py-8 bg-brandColor-100'>
+      <div className='w-full md:w-2/3 pr-0 md:pr-16 pt-4'>
         {/*     Banner     */}
-        <BannerImage imageSrc={recipeDetails.image} />
-        <HeadingText text={recipeDetails.title} className='mt-8' />
+        <SubHeadingText text={recipeDetails.title} className='mt-0' />
         <RegularText text={`By ${recipeDetails.creditsText}`} />
+        <BannerImage imageSrc={recipeDetails.image} className='mt-8' />
 
 
 
@@ -79,11 +78,11 @@ const RecipeInformation: React.FC = () => {
 
 
         {/*     Ingredients & Diet     */}
-        <div className='flex flex-row mt-8'>
-          <div className='w-2/3'>
+        <div className='flex flex-col md:flex-row mt-6 w-full'>
+          <div className='w-full md:w-2/3 '>
             <List headerText="Ingredients" data={recipeDetails.extendedIngredients} />
           </div>
-          <div className='pl-8 w-1/3 flex flex-col'>
+          <div className='pl-0 md:pl-8 w-full md:w-1/3 flex flex-col mt-6 md:mt-2'>
             <HeadingText text="Diet" />
             <Table>
               <TableRowKeyValuePair attribute="Dairy-free?" value={recipeDetails.dairyFree} />
@@ -97,7 +96,7 @@ const RecipeInformation: React.FC = () => {
 
 
       </div>
-      <div className='w-1/3'>
+      <div className='mt-4 w-full md:w-1/3 md:mt-0'>
       <Grid headerText="Similar Recipes" data={similarRecipes} cssClass={gridClasses.recipesSmallGrid} minDisplayItems={4}/>
       </div>
     </div>

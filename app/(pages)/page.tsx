@@ -7,23 +7,21 @@ import mealTypes from '../dummy/mealTypes';
 import Grid from '../components/organisms/Grid';
 import { gridClasses } from '../css/gridClasses';
 import React, { useEffect, useState } from 'react';
-import { fetchPopularRecipes } from '../api/spoonacular';
+import { fetchRecipes } from '../api/spoonacular';
 import ErrorBlock from '../components/atoms/ErrorBlock';
 
 export default function Home() {
   const [recipes, setRecipes] = useState<any>(null);
     const [error, setError] = useState<string | null>(null);
-  useEffect(() => {
     const loadRecipes = async () => {
       try {
-        const data = await fetchPopularRecipes();
+        const data = await fetchRecipes("/recipes/complexSearch?sort=popularity");
         setRecipes(data);
-        console.log(data)
       } catch (err: any) {
         setError(err.message || 'Failed to fetch recipes information.');
       }
     };
-
+  useEffect(() => {
     loadRecipes();
   }, []);
 
@@ -32,29 +30,28 @@ export default function Home() {
   }
 
   if (!recipes) {
-    return <div className='h-screen'></div>;
+    return <div className='bg-brandColor-100 h-screen w-screen'></div>;
   }
   return (
-    <main className="min-h-screen bg-orange-200">
+    <main className="min-h-screen bg-brandColor-50 pb-6">
       <BrandLine imgPath="./brand.svg" />
-
-      <section className='px-28 mt-16'>
+      <section className='px-4 md:px-28'>
         <Grid headerText="Diets" data={diets} cssClass={gridClasses.diets} minDisplayItems={4}/>
       </section>
 
-      <section className='px-28 mt-16'>
+      <section className='px-4 md:px-28 mt-4 md:pt-8'>
         <Grid headerText="Meal Types" data={mealTypes} cssClass={gridClasses.mealTypes} minDisplayItems={4}/>
 
       </section>
 
-      <section className='px-28 mt-16'>
-        <div className='flex flex-col md:flex-row '>
+      <section className='px-4 md:px-28 md:pt-8'>
+        <div className='flex flex-col md:flex-row mt-4'>
           {/* <p>{JSON.stringify(recipes)}</p> */}
           <div className='w-full md:w-2/3 '>
             <Grid headerText="Trending Recipes" data={recipes.results} cssClass={gridClasses.recipes} minDisplayItems={9}/>
           </div>
-          <div className='w-full md:w-1/3 pl-16'>
-            <List headerText="Savor every cuisine" data={cuisines} />
+          <div className='w-full md:w-1/3 md:pl-16 mt-4'>
+            <List headerText="Cuisines" data={cuisines} />
           </div>
         </div>
       </section>

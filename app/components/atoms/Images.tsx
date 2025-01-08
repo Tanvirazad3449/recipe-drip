@@ -2,9 +2,10 @@ import React, { useState } from "react";
 
 interface ImageProps {
     imageSrc: string | undefined;
+    className?: string;
   }
   
-  const BannerImage = ({imageSrc}:ImageProps)=>{
+  const BannerImage = ({imageSrc, className}:ImageProps)=>{
     const [isDeadLink, setIsDeadLink] = useState(false);
     if(isDeadLink){
         return(
@@ -14,7 +15,7 @@ interface ImageProps {
     return(
         <img
             src={imageSrc}
-            className="rounded-lg w-1/2 h-auto"
+            className={`w-full md:w-1/2 h-auto ${className}`}
             onError={() => setIsDeadLink(true)}
           />
     )
@@ -26,14 +27,14 @@ const LargeImage = ({imageSrc}:ImageProps)=>{
         return(
             <img
               src="/no-image-found.jpg"
-              className="rounded-tr-lg rounded-tl-lg w-full h-48 object-cover mb-2"
+              className="  w-full h-48 object-cover mb-2"
               />
         )
     }
     return(
         <img
             src={imageSrc}
-            className="rounded-tr-lg rounded-tl-lg w-full h-48 object-cover mb-2"
+            className="  w-full h-48 object-cover mb-2"
             onError={() => setIsDeadLink(true)}
           />
     )
@@ -45,14 +46,14 @@ const MediumImage = ({imageSrc}:ImageProps)=>{
         return(
             <img
               src="/no-image-found.jpg"
-              className="rounded-lg w-full h-auto center"
+              className="w-full h-48 object-cover"
             />
         )
     }
     return(
           <img
               src={imageSrc}
-              className="rounded-lg w-full center"
+              className="w-full h-48 object-cover"
               onError={() => setIsDeadLink(true)}
             />
     )
