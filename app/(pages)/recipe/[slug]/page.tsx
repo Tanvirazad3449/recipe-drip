@@ -10,7 +10,7 @@ import { Recipe, RecipeDetails } from '@/app/interfaces/Recipe';
 import List from '@/app/components/organisms/List';
 import { BannerImage } from '@/app/components/atoms/Images';
 import Grid from '@/app/components/organisms/Grid';
-import { gridClasses } from '@/app/css/gridClasses';
+import { gridClasses } from '@/app/styles/gridClasses';
 
 const RecipeInformation: React.FC = () => {
   const [recipeDetails, setRecipeDetails] = useState<RecipeDetails | null>(null);
@@ -19,33 +19,28 @@ const RecipeInformation: React.FC = () => {
   const [error, setError] = useState<string | null>(null);
   const pathName = usePathname()
   
-  const loadRecipeDetails = async () => {
-    try {
-      const data = await fetchRecipeInformation(extractId(pathName));
-      setRecipeDetails(data);
-      console.log(data)
-    } catch (err) {
-      if(err instanceof Error){
-        setError(err.message || 'Failed to fetch recipeDetails information.');
-      }
-    }
-  };
-
-  const loadSimilarRecipes = async () => {
-    try {
-      const data = await fetchSimilarRecipes(extractId(pathName));
-      setSimilarRecipes(data);
-    } catch (err) {
-      if(err instanceof Error){
-        setError(err.message || 'Failed to fetch recipeDetails information.');
-      }
-    }
-  };
-
   useEffect(() => {
-    loadRecipeDetails();
-    loadSimilarRecipes()
-  },[]);
+    const loadData = async () => {
+      try {
+        const [recipeDetails, similarRecipes] = await Promise.all([
+          fetchRecipeInformation(extractId(pathName)),
+          fetchSimilarRecipes(extractId(pathName)),
+        ]);
+  
+        setRecipeDetails(recipeDetails);
+        setSimilarRecipes(similarRecipes);
+  
+        console.log(recipeDetails);
+      } catch (err) {
+        if (err instanceof Error) {
+          setError(err.message || 'Failed to fetch data.');
+        }
+      }
+    };
+  
+    loadData();
+  }, [pathName]);
+  
 
   if (error) {
     return <p>Error: {error}</p>;
@@ -56,7 +51,7 @@ const RecipeInformation: React.FC = () => {
   }
 
   return (
-    <div className='flex flex-col md:flex-row px-4 md:px-28 py-8 bg-brandColor-100'>
+    <div className='flex flex-col md:flex-row px-4 md:px-28 py-8 '>
       <div className='w-full md:w-2/3 pr-0 md:pr-16 pt-4'>
         {/*     Banner     */}
         <SubHeadingText text={recipeDetails.title} className='mt-0' />

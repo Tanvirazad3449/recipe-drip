@@ -1,11 +1,11 @@
-import { TextProps } from "@/app/interfaces/TextProps"
+import { TextHTMLProps, TextProps } from "@/app/interfaces/TextProps"
 import parse from 'html-react-parser';
-const textClass = "text-slate-800";
+const textClass = "text-slate-800 group-hover:text-brandColor";
 const textClassLight = "text-slate-600";
 
 const RegularText = ({text, className = ""}:TextProps) => {
     return(
-        <p className={`font-gentiumPlus ${textClass} ${className}`}>{text}</p>
+        <p className={`font-gentiumPlus ${textClass} ${className} `}>{text}</p>
     )
 }
 
@@ -28,7 +28,7 @@ const SmallText = ({text, className = ""}:TextProps) => {
     )
 }
 
-const RegularTextHTML = ({text, className = ""}:TextProps) => {
+const RegularTextHTML = ({text, className = ""}:TextHTMLProps) => {
     return(
         <div className={`${textClass} font-gentiumPlus text-justify ${className}`}>
             {parse(text || "")}

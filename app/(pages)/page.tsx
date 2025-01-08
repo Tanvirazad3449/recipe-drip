@@ -5,7 +5,7 @@ import cuisines from '../dummy/cuisines';
 import diets from '../dummy/diets';
 import mealTypes from '../dummy/mealTypes';
 import Grid from '../components/organisms/Grid';
-import { gridClasses } from '../css/gridClasses';
+import { gridClasses } from '../styles/gridClasses';
 import React, { useEffect, useState } from 'react';
 import { fetchRecipes } from '../api/spoonacular';
 import ErrorBlock from '../components/atoms/ErrorBlock';
@@ -38,7 +38,7 @@ export default function Home() {
     return <div className='bg-brandColor-100 h-screen w-screen'></div>;
   }
   return (
-    <main className="min-h-screen bg-brandColor-50 pb-6">
+    <main className="min-h-screen pb-6">
       <BrandLine imgPath="./brand.svg" />
       <section className='px-4 md:px-28'>
         <Grid headerText="Diets" data={diets} cssClass={gridClasses.diets} minDisplayItems={4} />

@@ -1,5 +1,3 @@
-// src/api/spoonacular.ts
-
 import { Recipe, RecipeDetails, Recipes } from "../interfaces/Recipe";
 import { apiClient } from "./apiClient";
 
@@ -16,11 +14,5 @@ export const fetchSimilarRecipes = async (recipeId: string): Promise<Recipe[]> =
 
 export const fetchRecipes = async (arg: string): Promise<Recipes> => {
   const endpoint = `${arg}&apiKey=${API_KEY}&number=10`;
-  console.log("this is endpoint in spoonacular.ts:", endpoint)
   return await apiClient<Recipes>(endpoint, 'GET');
 };
-  
-
-// https://api.spoonacular.com/recipes/complexSearch?sort=popularity&number=10
-
-// https://api.spoonacular.com/recipes/random?number=1&include-tags=vegetarian,dessert&exclude-tags=quinoa

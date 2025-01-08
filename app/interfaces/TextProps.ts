@@ -1,4 +1,9 @@
 export interface TextProps{
-    text: string | undefined;
+    text: string | number | undefined;
+    className?: string;
+}
+
+export interface TextHTMLProps{
+    text: string;
     className?: string;
 }

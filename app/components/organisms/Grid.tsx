@@ -24,6 +24,7 @@ const Grid: React.FC<GridProps> = ({ headerText, data, cssClass, minDisplayItems
         headerText={headerText}
         toggleItemView={toggleItemView}
         isExpanded={isExpanded}
+        showExpandButton={data.length > minDisplayItems}
       />
       <div className={cssClass}>
         {itemsToShow.map((gridObj: GridDataType) => <GridItem key={gridObj.id} gridObj={gridObj} />)}

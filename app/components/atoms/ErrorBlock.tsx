@@ -6,7 +6,7 @@ interface ErrorComponentProps {
 
 const ErrorBlock: React.FC<ErrorComponentProps> = ({ message }) => {
   return (
-    <div className="flex items-center justify-center h-screen bg-red-100 text-red-800 text-lg font-semibold shadow-md ">
+    <div className="flex pt-12 items-start justify-center h-screen bg-red-100 text-red-800 text-lg font-semibold shadow-md ">
       {message}
     </div>
   );

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Header from "./components/organisms/Header";
 import Footer from "./components/organisms/Footer";
-import { gentiumPlus, butterChicken, montserrat } from "./css/fonts";
+import { gentiumPlus, butterChicken, montserrat } from "./styles/fonts";
 
 export const metadata: Metadata = {
   title: "Create Next App",
