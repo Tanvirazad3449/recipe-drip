@@ -1,6 +1,6 @@
 import Link from "next/link"
 import { Container } from "../atoms/Container"
-import { RegularText, SmallText } from "../atoms/Texts"
+import { RegularText } from "../atoms/Texts"
 import { LargeIcon } from "../atoms/Icons"
 import { CuisineType } from "@/app/interfaces/CuisineType"
 import { Ingredient } from "@/app/interfaces/Ingredient"

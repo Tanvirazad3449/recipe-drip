@@ -39,7 +39,6 @@ interface RecipeDetails {
       number: number;
       step: string;
       ingredients: Ingredient[];
-      equipment: any[];
     }[];
   }[];
 }
@@ -52,7 +51,7 @@ interface Recipe {
 }
 
 interface Recipes {
-  results: Recipe;
+  results: Recipe[];
   
 }
 

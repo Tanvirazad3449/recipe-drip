@@ -24,8 +24,10 @@ const RecipeInformation: React.FC = () => {
       const data = await fetchRecipeInformation(extractId(pathName));
       setRecipeDetails(data);
       console.log(data)
-    } catch (err: any) {
-      setError(err.message || 'Failed to fetch recipeDetails information.');
+    } catch (err) {
+      if(err instanceof Error){
+        setError(err.message || 'Failed to fetch recipeDetails information.');
+      }
     }
   };
 
@@ -33,15 +35,17 @@ const RecipeInformation: React.FC = () => {
     try {
       const data = await fetchSimilarRecipes(extractId(pathName));
       setSimilarRecipes(data);
-    } catch (err: any) {
-      setError(err.message || 'Failed to fetch recipeDetails information.');
+    } catch (err) {
+      if(err instanceof Error){
+        setError(err.message || 'Failed to fetch recipeDetails information.');
+      }
     }
   };
 
   useEffect(() => {
     loadRecipeDetails();
     loadSimilarRecipes()
-  }, []);
+  },[]);
 
   if (error) {
     return <p>Error: {error}</p>;
@@ -97,7 +101,9 @@ const RecipeInformation: React.FC = () => {
 
       </div>
       <div className='mt-4 w-full md:w-1/3 md:mt-0'>
+      {similarRecipes?.length > 0 &&
       <Grid headerText="Similar Recipes" data={similarRecipes} cssClass={gridClasses.recipesSmallGrid} minDisplayItems={4}/>
+}
       </div>
     </div>
   );

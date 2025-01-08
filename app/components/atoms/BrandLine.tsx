@@ -1,5 +1,3 @@
-import { Inter } from 'next/font/google'
-
 interface BrandLineProps {
     imgPath: string;
 }

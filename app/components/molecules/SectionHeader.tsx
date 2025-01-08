@@ -1,4 +1,4 @@
-import { HeadingText, RegularText, SmallText } from "../atoms/Texts"
+import { HeadingText, SmallText } from "../atoms/Texts"
 import { SmallButton } from "../atoms/Buttons";
 
 interface SectionHeaderProps {

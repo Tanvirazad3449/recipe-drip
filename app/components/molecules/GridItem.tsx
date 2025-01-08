@@ -14,7 +14,7 @@ const GridItem: React.FC<GridItemProps> = ({ gridObj }) => {
     return (
       <Link href={`recipes/complexSearch?diet=${gridObj.dietName}`}>
         <Container className="w-full flex flex-col items-center justify-start pb-2 border border-brandColor-200">
-          <LargeImage imageSrc={`/images/${gridObj.imageId}.jpg`} />
+          <LargeImage imageSrc={`/diets/${gridObj.imageId}.jpg`} />
           <RegularText text={gridObj.dietName} className="font-bold" />
         </Container>
       </Link>
@@ -25,7 +25,7 @@ const GridItem: React.FC<GridItemProps> = ({ gridObj }) => {
     return (
       <Link href={`recipes/complexSearch?type=${gridObj.mealTypeName}`}>
         <Container className="w-full flex flex-row items-center justify-start p-4  border border-brandColor-200">
-          <LargeIcon iconSrc={`/icons/${gridObj.imageId}.png`} />
+          <LargeIcon iconSrc={`/mealTypes/${gridObj.imageId}.png`} />
           <RegularText text={gridObj.mealTypeName} className="ml-2 font-bold" />
         </Container>
       </Link>
