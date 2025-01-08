@@ -75,7 +75,7 @@ const Recipes: React.FC = () => {
   }
 
   if (!recipes) {
-    return <div className="bg-brandColor-100 h-screen w-screen">No recipes to show</div>;
+    return <div className="bg-brandColor-100 h-screen w-screen">No recipes to show!</div>;
   }
 
   return (
