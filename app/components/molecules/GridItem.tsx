@@ -10,13 +10,15 @@ interface GridItemProps {
   gridObj: GridDataType
 }
 const GridItem: React.FC<GridItemProps> = ({ gridObj }) => {
+  
+
   // Diet Objects
   if (gridObj.dietName) {
     return (
       <Link href={`recipes/complexSearch?diet=${gridObj.dietName}`}>
         <Container className="w-full flex flex-col items-center justify-start pb-2 border border-brandColor-200 group">
           <LargeImage imageSrc={`/diets/${gridObj.imageId}.jpg`} />
-          <RegularText text={gridObj.dietName} className="font-bold"/>
+          <RegularText className="font-bold">{gridObj.dietName}</RegularText>
         </Container>
       </Link>
     )
@@ -27,7 +29,7 @@ const GridItem: React.FC<GridItemProps> = ({ gridObj }) => {
       <Link href={`recipes/complexSearch?type=${gridObj.mealTypeName}`}>
         <Container className="w-full flex flex-row items-center justify-start p-4  border border-brandColor-200 group">
           <LargeIcon iconSrc={`/mealTypes/${gridObj.imageId}.png`} />
-          <RegularText text={gridObj.mealTypeName} className="ml-2 font-bold" />
+          <RegularText className="ml-2 font-bold">{gridObj.mealTypeName}</RegularText>
         </Container>
       </Link>
     )
@@ -38,8 +40,8 @@ const GridItem: React.FC<GridItemProps> = ({ gridObj }) => {
       <Link href={`/recipe/${gridObj.id}`}>
         <Container className="h-auto group hover:bg-transparent">
           <MediumImage imageSrc={gridObj.image || getRecipeImageSrc(gridObj.id, gridObj.imageType)} />
-          <RegularText text={gridObj.title} className='py-1' />
-        </Container>
+          <RegularText className='py-1'>{gridObj.title}</RegularText>
+          </Container>
       </Link>
     )
   } 

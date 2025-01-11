@@ -9,10 +9,18 @@ export default function Header() {
           <Logo />
         </Link>
         <div className="flex items-center space-x-4">
+          <Link href="/sign-in">
           <button className="px-0 md:px-2 text-xs md:text-base text-slate-600 py-2 font-bold hover:text-slate-800">
             SIGN UP
           </button>
+          </Link>
+          <Link href="/liked-recipes">
+
           <button className="px-0 md:px-2 text-xs md:text-base text-slate-600 py-2 font-bold hover:text-slate-800">
+            LIKED
+          </button>
+</Link>
+<button className="px-0 md:px-2 text-xs md:text-base text-slate-600 py-2 font-bold hover:text-slate-800">
             SEARCH
           </button>
         </div>

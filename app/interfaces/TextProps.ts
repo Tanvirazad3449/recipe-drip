@@ -1,6 +1,8 @@
+import { ReactNode } from "react";
+
 export interface TextProps{
-    text: string | number | undefined;
     className?: string;
+    children: ReactNode;
 }
 
 export interface TextHTMLProps{

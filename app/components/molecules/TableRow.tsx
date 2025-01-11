@@ -8,10 +8,10 @@ const TableRowKeyValuePair = ({ attribute, value }: TableRowKeyValuePairProps) =
     return (
         <tr>
             <td className="px-4 md:px-2 py-1">
-            <RegularText text={attribute}/>
+            <RegularText>{attribute}</RegularText>
             </td>
             <td className="px-4 md:px-2 py-1">
-                <RegularText className="ml-2 text-right" text={value ? "Yes" : "No"} />
+                <RegularText className="ml-2 text-right">{value ? "Yes" : "No"}</RegularText>
             </td>
         </tr>
     )

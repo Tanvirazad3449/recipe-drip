@@ -18,7 +18,7 @@ const ListItems: React.FC<p> = ({ listObj }) => {
       <Link href={`recipes/complexSearch?cuisine=${listObj.cuisineName}`}>
         <Container key={listObj.id} className="flex items-center justify-start p-4 mb-2 border border-brandColor-200 group">
           <LargeIcon iconSrc={`/countries/${listObj.imageId}.png`} />
-          <RegularText text={listObj.cuisineName} className="ml-2 font-bold" />
+          <RegularText className="ml-2 font-bold">{listObj.cuisineName} </RegularText>
         </Container>
       </Link>
     )
@@ -34,8 +34,8 @@ const ListItems: React.FC<p> = ({ listObj }) => {
             <LargeIcon iconSrc={getIngredientsImageSrc(listObj.image)} iconName={listObj.image} />
           </div>
           <div className="w-11/12 ml-2">
-            <RegularText text={capitalize(listObj.nameClean)} className="ml-2 font-bold" />
-            <RegularText text={`${listObj.amount} ${listObj.unit}`} className="ml-2 mt-0" />
+            <RegularText className="ml-2 font-bold">{capitalize(listObj.nameClean)}</RegularText>
+            <RegularText className="ml-2 mt-0">{`${listObj.amount} ${listObj.unit}`}</RegularText>
           </div>
         </Container>
       </Link>

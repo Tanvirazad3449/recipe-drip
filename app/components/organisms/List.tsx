@@ -14,7 +14,7 @@ export default function List({ headerText, data }: ListProps) {
   return (
     <div>
       <div className="py-2">
-        <HeadingText text={headerText} />
+        <HeadingText>{headerText}</HeadingText>
       </div>
       <ul className="list-none flex flex-col">
         {data.map((listObj) => (

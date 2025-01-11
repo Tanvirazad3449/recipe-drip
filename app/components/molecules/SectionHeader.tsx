@@ -12,9 +12,9 @@ interface SectionHeaderProps {
 const SectionHeader = ({ headerText, toggleItemView, isExpanded, showExpandButton }: SectionHeaderProps) => {
   return (
     <div className="justify-between align-middle flex py-2 items-center">
-      <HeadingText text={capitalize(headerText)} />
+      <HeadingText>{capitalize(headerText)}</HeadingText>
       <SmallButton onClick={toggleItemView} className={showExpandButton ? "" : "hidden"}>
-        <SmallText text={`Show ${isExpanded ? "Less" : "More"}`} />
+        <SmallText>{`Show ${isExpanded ? "Less" : "More"}`}</SmallText>
       </SmallButton>
     </div>
   )
