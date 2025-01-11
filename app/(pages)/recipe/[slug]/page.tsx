@@ -122,10 +122,12 @@ const RecipeInformation: React.FC = () => {
 
 
         {/*     Instruction     */}
+        {recipeDetails.instructions && recipeDetails.instructions.length > 0 &&
         <div className='mt-8'>
           <HeadingText>Instructions</HeadingText>
           <RegularTextHTML text={recipeDetails.instructions} />
         </div>
+}
 
 
 

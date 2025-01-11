@@ -17,7 +17,6 @@ const SignInPage: React.FC = () => {
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged((authUser) => {
-      console.log("authUser: ", authUser)
       setUser(authUser);
     });
 
@@ -32,36 +31,38 @@ const SignInPage: React.FC = () => {
     try {
       await signUpWithEmail(email, password);
     } catch (error) {
-      console.error("Sign up error:", error); // Log the full error for debugging
-      if(error instanceof FirebaseError){
-        if (error.code === "auth/email-already-in-use") {
-          alert("The email address is already in use by another account.");
-        } else if (error.code === "auth/weak-password") {
-          alert("The password is too weak. Please choose a stronger password.");
-        } else {
-          alert("Sign up failed: " + error.message);
+      if (error instanceof FirebaseError) {
+        switch (error.code) {
+          case "auth/email-already-in-use":
+            alert("The email address is already in use by another account.");
+            break;
+          case "auth/weak-password":
+            alert("The password is too weak. Please choose a stronger password.");
+            break;
+          default:
+            alert("Sign up failed: " + error.message);
         }
       }
-      
     }
   };
+
   const handleEmailSignIn = async () => {
     try {
       await signInWithEmail(email, password);
     } catch (error) {
-      console.error("Sign in error:", error); // Log full error for debugging
-      if(error instanceof FirebaseError){
-
-        if (error.code === "auth/user-not-found") {
-          alert("No user found with this email. Please sign up first.");
-        } else if (error.code === "auth/wrong-password") {
-          alert("Incorrect password. Please try again.");
-        } else if (error.code === "auth/invalid-email") {
-          alert("Invalid email address. Please check and try again.");
-        } else if (error.code === "auth/invalid-credential") {
-          alert("Invalid Credentials. Please check and try again.");
-        } else {
-          alert("Sign in failed: " + error.message);
+      if (error instanceof FirebaseError) {
+        switch (error.code) {
+          case "auth/user-not-found":
+            alert("No user found with this email. Please sign up first.");
+            break;
+          case "auth/wrong-password":
+            alert("Incorrect password. Please try again.");
+            break;
+          case "auth/invalid-email":
+            alert("Invalid email address. Please check and try again.");
+            break;
+          default:
+            alert("Sign in failed: " + error.message);
         }
       }
     }
@@ -72,112 +73,66 @@ const SignInPage: React.FC = () => {
   };
 
   return (
-    <div className="mt-12 items-center align-middle flex flex-1 justify-center flex-col">
-      <h1>Sign In</h1>
-      {user ? (
-        <div>
-          <p>Welcome, {user.displayName || user.email}!</p>
-          {user.photoURL && (
-            <img
-              src={user.photoURL}
-              alt="User Avatar"
-              style={{
-                borderRadius: "50%",
-                width: "100px",
-                height: "100px",
-              }}
-            />
-          )}
-          <br />
-          <button
-            onClick={handleSignOut}
-            style={{
-              padding: "10px 20px",
-              marginTop: "10px",
-              backgroundColor: "#d32f2f",
-              color: "#fff",
-              border: "none",
-              borderRadius: "5px",
-              cursor: "pointer",
-            }}
-          >
-            Sign Out
-          </button>
-        </div>
-      ) : (
-        <div>
-          <button
-            onClick={handleGoogleSignIn}
-            style={{
-              padding: "10px 20px",
-              backgroundColor: "#4285F4",
-              color: "#fff",
-              border: "none",
-              borderRadius: "5px",
-              cursor: "pointer",
-              marginBottom: "10px",
-            }}
-          >
-            Sign In with Google
-          </button>
-          <div style={{ marginTop: "20px" }}>
-            <h2>Email Authentication</h2>
-            <input
-              type="email"
-              placeholder="Email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              style={{
-                padding: "10px",
-                margin: "5px",
-                borderRadius: "5px",
-                border: "1px solid #ccc",
-              }}
-            />
-            <input
-              type="password"
-              placeholder="Password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              style={{
-                padding: "10px",
-                margin: "5px",
-                borderRadius: "5px",
-                border: "1px solid #ccc",
-              }}
-            />
-            <br />
+    <div className="flex flex-col items-center justify-start min-h-screen bg-gray-100 p-4 pt-12">
+      <div className="bg-white shadow-md rounded-lg p-6 max-w-sm w-full">
+        <h1 className="text-2xl font-semibold text-center mb-6">Sign In</h1>
+        {user ? (
+          <div className="text-center">
+            <p className="text-lg">Welcome, {user.displayName || user.email}!</p>
+            {user.photoURL && (
+              <img
+                src={user.photoURL}
+                alt="User Avatar"
+                className="w-24 h-24 rounded-full mx-auto my-4"
+              />
+            )}
             <button
-              onClick={handleEmailSignUp}
-              style={{
-                padding: "10px 20px",
-                margin: "10px",
-                backgroundColor: "#4CAF50",
-                color: "#fff",
-                border: "none",
-                borderRadius: "5px",
-                cursor: "pointer",
-              }}
+              onClick={handleSignOut}
+              className="w-full bg-red-500 text-white py-2 rounded-lg hover:bg-red-600 transition"
             >
-              Sign Up with Email
-            </button>
-            <button
-              onClick={handleEmailSignIn}
-              style={{
-                padding: "10px 20px",
-                margin: "10px",
-                backgroundColor: "#008CBA",
-                color: "#fff",
-                border: "none",
-                borderRadius: "5px",
-                cursor: "pointer",
-              }}
-            >
-              Sign In with Email
+              Sign Out
             </button>
           </div>
-        </div>
-      )}
+        ) : (
+          <div>
+            <button
+              onClick={handleGoogleSignIn}
+              className="w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600 transition mb-4"
+            >
+              Sign In with Google
+            </button>
+            <div className="mt-6">
+              <h2 className="text-lg font-medium mb-4">Email Authentication</h2>
+              <input
+                type="email"
+                placeholder="Email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                className="w-full p-2 mb-3 border rounded-lg focus:outline-none focus:ring focus:ring-blue-200"
+              />
+              <input
+                type="password"
+                placeholder="Password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                className="w-full p-2 mb-4 border rounded-lg focus:outline-none focus:ring focus:ring-blue-200"
+              />
+              <button
+                onClick={handleEmailSignUp}
+                className="w-full bg-green-500 text-white py-2 rounded-lg hover:bg-green-600 transition mb-3"
+              >
+                Sign Up with Email
+              </button>
+              <button
+                onClick={handleEmailSignIn}
+                className="w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600 transition"
+              >
+                Sign In with Email
+              </button>
+            </div>
+          </div>
+        )}
+      </div>
     </div>
   );
 };

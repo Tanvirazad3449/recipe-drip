@@ -25,10 +25,10 @@ const ListItems: React.FC<p> = ({ listObj }) => {
   }
 
   if ("name" in listObj) {
-    // Ingredient Object
-    // https://api.spoonacular.com/recipes/findByIngredients/ingredients=apple
-    return (
-      <Link href={`/recipes/findByIngredients?ingredients=${listObj.nameClean}`}>
+    if(listObj.id !== -1){
+      // Ingredient Object
+      return (
+        <Link href={`/recipes/findByIngredients?ingredients=${listObj.nameClean}`}>
         <Container key={listObj.id} className="flex items-center justify-start p-2 mb-2 border border-brandColor-200 bg-white">
           <div className="w-1/12 pl-2">
             <LargeIcon iconSrc={getIngredientsImageSrc(listObj.image)} iconName={listObj.image} />
@@ -37,9 +37,11 @@ const ListItems: React.FC<p> = ({ listObj }) => {
             <RegularText className="ml-2 font-bold">{capitalize(listObj.nameClean)}</RegularText>
             <RegularText className="ml-2 mt-0">{`${listObj.amount} ${listObj.unit}`}</RegularText>
           </div>
+          {/* <p>{JSON.stringify(listObj)}</p> */}
         </Container>
       </Link>
     )
+  }
   }
 
   return null
