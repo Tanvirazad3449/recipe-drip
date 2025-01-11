@@ -14,8 +14,8 @@ import { gridClasses } from '@/app/styles/gridClasses';
 
 import { db, auth } from '../../../libs/firebase/config'; // Import your Firebase initialization
 import { doc, setDoc, arrayUnion, getDoc } from "firebase/firestore"; // Import necessary Firestore functions
-import { MediumButton, SmallButton } from '@/app/components/atoms/Buttons';
-import { Container } from '@/app/components/atoms/Container';
+import { MediumButton } from '@/app/components/atoms/Buttons';
+
 const RecipeInformation: React.FC = () => {
   const [recipeDetails, setRecipeDetails] = useState<RecipeDetails | null>(null);
   const [similarRecipes, setSimilarRecipes] = useState<Recipe[] | []>([]);

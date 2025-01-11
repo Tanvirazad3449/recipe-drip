@@ -8,7 +8,6 @@ import {
   } from 'firebase/auth';
   
   import { auth } from './config';
-import firebase from 'firebase/compat/app';
   
   export function onAuthStateChanged(callback: (authUser: User | null) => void) {
     return _onAuthStateChanged(auth, callback);

@@ -8,6 +8,7 @@ import {
   signInWithEmail,
 } from "../../libs/firebase/auth";
 import { User } from "firebase/auth";
+import { FirebaseError } from "firebase/app";
 
 const SignInPage: React.FC = () => {
   const [user, setUser] = useState<User | null>(null);
@@ -30,32 +31,38 @@ const SignInPage: React.FC = () => {
   const handleEmailSignUp = async () => {
     try {
       await signUpWithEmail(email, password);
-    } catch (error: any) {
+    } catch (error) {
       console.error("Sign up error:", error); // Log the full error for debugging
-      if (error.code === "auth/email-already-in-use") {
-        alert("The email address is already in use by another account.");
-      } else if (error.code === "auth/weak-password") {
-        alert("The password is too weak. Please choose a stronger password.");
-      } else {
-        alert("Sign up failed: " + error.message);
+      if(error instanceof FirebaseError){
+        if (error.code === "auth/email-already-in-use") {
+          alert("The email address is already in use by another account.");
+        } else if (error.code === "auth/weak-password") {
+          alert("The password is too weak. Please choose a stronger password.");
+        } else {
+          alert("Sign up failed: " + error.message);
+        }
       }
+      
     }
   };
   const handleEmailSignIn = async () => {
     try {
       await signInWithEmail(email, password);
-    } catch (error: any) {
+    } catch (error) {
       console.error("Sign in error:", error); // Log full error for debugging
-      if (error.code === "auth/user-not-found") {
-        alert("No user found with this email. Please sign up first.");
-      } else if (error.code === "auth/wrong-password") {
-        alert("Incorrect password. Please try again.");
-      } else if (error.code === "auth/invalid-email") {
-        alert("Invalid email address. Please check and try again.");
-      } else if (error.code === "auth/invalid-credential") {
-        alert("Invalid Credentials. Please check and try again.");
-      } else {
-        alert("Sign in failed: " + error.message);
+      if(error instanceof FirebaseError){
+
+        if (error.code === "auth/user-not-found") {
+          alert("No user found with this email. Please sign up first.");
+        } else if (error.code === "auth/wrong-password") {
+          alert("Incorrect password. Please try again.");
+        } else if (error.code === "auth/invalid-email") {
+          alert("Invalid email address. Please check and try again.");
+        } else if (error.code === "auth/invalid-credential") {
+          alert("Invalid Credentials. Please check and try again.");
+        } else {
+          alert("Sign in failed: " + error.message);
+        }
       }
     }
   };
