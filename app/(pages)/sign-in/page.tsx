@@ -21,7 +21,7 @@ const SignInPage: React.FC = () => {
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [isMounted, setIsMounted] = useState(false);
   const router = useRouter();
-  const { user, loading } = useAuth();
+  const { user } = useAuth();
 
   useEffect(() => {
     setIsMounted(true);

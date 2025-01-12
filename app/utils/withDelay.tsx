@@ -4,7 +4,7 @@ const withDelay = <P extends object>(
   WrappedComponent: React.ComponentType<P>,
   delay: number
 ) => {
-  return (props: P) => {
+  const DelayedComponent = (props: P) => {
     const [visible, setVisible] = useState(false);
 
     useEffect(() => {
@@ -21,6 +21,10 @@ const withDelay = <P extends object>(
 
     return <WrappedComponent {...props} />;
   };
+
+  DelayedComponent.displayName = `WithDelay(${WrappedComponent.displayName || WrappedComponent.name || "Component"})`;
+
+  return DelayedComponent;
 };
 
 export default withDelay;

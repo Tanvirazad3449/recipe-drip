@@ -1,8 +1,11 @@
 import React from 'react'
 import { RegularText } from '../atoms/Texts'
 import { MediumButton } from '../atoms/Buttons'
-
-function SaveRecipeSection({ saved, handleSave }: any) {
+interface SaveRecipeSectionProps{
+    saved: boolean;
+    handleSave: ()=>void;
+}
+function SaveRecipeSection({ saved, handleSave }: SaveRecipeSectionProps) {
     return (
         <div className="my-4 align-middle">
             <MediumButton

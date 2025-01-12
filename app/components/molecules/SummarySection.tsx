@@ -1,7 +1,9 @@
 import React from 'react'
 import { HeadingText, RegularTextHTML } from '../atoms/Texts'
-
-function SummarySection({summary}:any) {
+interface SummarySectionProps{
+  summary: string;
+}
+function SummarySection({summary}:SummarySectionProps) {
   return (
     <div className="mt-8">
   <HeadingText className="mt-8">Summary</HeadingText>

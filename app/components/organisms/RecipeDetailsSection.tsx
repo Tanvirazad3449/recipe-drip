@@ -6,8 +6,13 @@ import SummarySection from '../molecules/SummarySection'
 import InstructionsSection from '../molecules/InstructionsSection'
 import IngredientsSection from '../molecules/IngredientsSection'
 import DietSection from '../molecules/DietSection'
-
-function RecipeDetailsSection({ recipeDetails, saved, handleSave }: any) {
+import { RecipeDetails } from '@/app/interfaces/Recipe'
+interface RecipeDetailsSectionProps{
+    recipeDetails: RecipeDetails;
+    saved: boolean;
+    handleSave: ()=>void;
+}
+function RecipeDetailsSection({ recipeDetails, saved, handleSave }: RecipeDetailsSectionProps) {
     return (
         <div className="w-full md:w-2/3 pr-0 md:pr-16 pt-4">
             <RecipeTitleAndAuthor title={recipeDetails.title} creditsText={recipeDetails.creditsText} />

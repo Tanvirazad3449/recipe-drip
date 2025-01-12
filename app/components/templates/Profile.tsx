@@ -3,7 +3,7 @@ import { ErrorNotificationBlock, InfoNotificationBlock } from "@/app/components/
 import { useAuth } from "@/app/context/UserContext";
 import { signOut } from "@/app/libs/firebase/auth";
 import { useRouter } from "next/navigation";
-import { HeadingText, RegularText } from "../atoms/Texts";
+import { RegularText } from "../atoms/Texts";
 import { LargeIcon } from "../atoms/Icons";
 import { MediumButton } from "../atoms/Buttons";
 
