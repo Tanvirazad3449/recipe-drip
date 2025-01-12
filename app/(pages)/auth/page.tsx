@@ -9,13 +9,14 @@ import { FirebaseError } from "firebase/app";
 import { useRouter } from "next/navigation";
 import { useAuth } from "@/app/context/UserContext";
 import { MediumButton, MediumButtonWithIcon } from "@/app/components/atoms/Buttons";
-import { Input } from "@/app/components/atoms/Input";
+import { Input, InputWithIconButton } from "@/app/components/atoms/Inputs";
 import { RegularText, SmallText } from "@/app/components/atoms/Texts";
-import GoogleLogo from "@/app/components/atoms/GoogleLogo";
+import GoogleLogo from "@/public/svg/GoogleLogo";
+import TogglePasswordVisibiltyIconButton from "@/app/components/atoms/TogglePasswordVisibiltyIconButton";
 
 const SignInPage: React.FC = () => {
   const [isSignInMode, setIsSignInMode] = useState(true);
-
+  const [passwordHidden, setPasswordHidden] = useState(true)
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
@@ -58,6 +59,10 @@ const SignInPage: React.FC = () => {
     }
   };
 
+  const togglePasswordVisibility = () =>{
+    setPasswordHidden(!passwordHidden)
+  }
+
   const handleEmailSignIn = async () => {
     try {
       await signInWithEmail(email, password);
@@ -93,8 +98,8 @@ const SignInPage: React.FC = () => {
   }
 
   return (
-    <div className="flex flex-col items-center justify-start min-h-screen bg-gray-100 p-4 pt-12">
-      <div className="bg-white shadow-md p-6 max-w-sm w-full">
+    <div className="flex flex-col items-center justify-start min-h-screen bg-gray-100">
+      <div className="bg-white shadow-md max-w-sm w-full">
         <RegularText>{isSignInMode ? "Don't" : "Already"} have an account?
           <span
             className="font-bold hover:text-brandColor cursor-pointer"
@@ -111,11 +116,13 @@ const SignInPage: React.FC = () => {
               onChange={(e) => setEmail(e.target.value)}
             />
 
-            <Input
-              type="password"
+            <InputWithIconButton
+
+              type={passwordHidden ? "text" : "password"}
               placeholder="Password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
+              icon={<TogglePasswordVisibiltyIconButton passwordHidden={passwordHidden} onClick={togglePasswordVisibility}/>}
             />
             {errorMessage && (
               <SmallText className="text-red-700 text-center bg-red-50 py-2">
@@ -124,13 +131,14 @@ const SignInPage: React.FC = () => {
             )}
             <MediumButton
               onClick={isSignInMode ? handleEmailSignIn : handleEmailSignUp}
-              className="w-full mb-4 mt-4 font-bold"
+              className="w-full mb-4 mt-2 font-bold"
             >
               {isSignInMode ? "Sign In" : "Sign Up"}
             </MediumButton>
+            {/* <RegularText className="mt-8 mb-4">You can also use your Google account to sign in</RegularText> */}
             <MediumButtonWithIcon
               onClick={handleGoogleSignIn}
-              className="w-full text-black bg-gray-200 hover:bg-gray-100 font-bold"
+              className="w-full font-bold"
               icon={<GoogleLogo />}
             >
               Sign In with Google

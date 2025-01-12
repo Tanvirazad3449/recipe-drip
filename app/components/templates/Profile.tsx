@@ -3,9 +3,8 @@ import { ErrorNotificationBlock, InfoNotificationBlock } from "@/app/components/
 import { useAuth } from "@/app/context/UserContext";
 import { signOut } from "@/app/libs/firebase/auth";
 import { useRouter } from "next/navigation";
-import { RegularText } from "../atoms/Texts";
-import { LargeIcon } from "../atoms/Icons";
-import { MediumButton } from "../atoms/Buttons";
+import SavedRecipes from "./SavedRecipes";
+import ProfileSection from "../organisms/ProfileSection";
 
 export default function Profile() {
   const { user, loading } = useAuth();
@@ -13,7 +12,7 @@ export default function Profile() {
 
   if (loading) {
     return (
-      <InfoNotificationBlock message="Checking if you are signed in..."/>
+      <InfoNotificationBlock message="Checking if you are signed in..." />
     );
   }
 
@@ -29,26 +28,9 @@ export default function Profile() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 flex align-middle items-start justify-center pt-12">
-      <div className="bg-white shadow-md p-6 max-w-sm w-full">
-
-        <div className="items-center flex justify-center flex-col">
-          <RegularText>Welcome,</RegularText>
-          <RegularText className="mb-4">{user.displayName || user.email}</RegularText>
-          
-          {user.photoURL && (
-            <LargeIcon
-              iconSrc={user.photoURL}
-            />
-          )}
-        </div>
-        <MediumButton
-          onClick={handleSignOut}
-          className="w-full mt-8 font-bold"
-        >
-          Sign Out
-        </MediumButton>
-      </div>
+    <div className="flex flex-col-reverse md:flex-row items-start justify-start min-h-screen w-full px-4 md:px-28 mt-2 pb-8">
+      <SavedRecipes />
+      <ProfileSection user={user} handleSignOut={handleSignOut}/>
     </div>
   );
 }

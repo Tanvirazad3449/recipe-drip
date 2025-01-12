@@ -23,6 +23,10 @@ module.exports = {
           800: '#783c5c80', // 80% opacity
           900: '#783c5c90', // 90% opacity
         },
+        google: {
+          DEFAULT: '#4285F4',
+          900: '#4285F490'
+        }
       },
       fontFamily: {
         butterChicken: ['var(--font-butter-chicken)', 'sans-serif'], // Fallback font

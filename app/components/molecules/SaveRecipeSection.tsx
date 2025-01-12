@@ -16,7 +16,7 @@ function SaveRecipeSection({ saved, handleSave }: SaveRecipeSectionProps) {
             </MediumButton>
             <RegularText>
                 {saved
-                    ? "This recipe is saved to your Collection!"
+                    ? "This recipe is saved to your Profile!"
                     : "Like this recipe? Save it for later!"}
             </RegularText>
         </div>

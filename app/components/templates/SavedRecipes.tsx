@@ -22,17 +22,15 @@ const SavedRecipes = () => {
   }
 
   return (
-    <div className="min-h-screen">
+    <div className="w-full md:w-2/3 pt-4">
       {loading ? (<InfoNotificationBlock message="Loading your saved recipes..." />) 
       : recipesData.length > 0 && !loading ? (
-        <div className="flex flex-col px-4 md:px-28 py-4">
           <Grid
             headerText="Your Saved Recipes"
             data={recipesData}
-            cssClass={gridClasses.recipesBigGrid}
-            minDisplayItems={8}
+            cssClass={gridClasses.recipes}
+            minDisplayItems={100}
           />
-        </div>
       ): (
         <InfoNotificationBlock message="You have not saved any recipes yet..." />
       ) }

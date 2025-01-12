@@ -30,7 +30,7 @@ const MediumButtonWithIcon = ({ onClick, children, icon, className = "" }: Butto
   return (
     <button
       onClick={onClick}
-      className={`py-2 px-4 flex flex-row align-middle justify-center items-center bg-brandColor hover:bg-brandColor-900 text-white ${className}`}
+      className={`py-2 px-4 flex flex-row align-middle justify-center items-center bg-white border border-gray-200 hover:bg-gray-100 text-gray-500 ${className}`}
       >
         {icon}
       {children}

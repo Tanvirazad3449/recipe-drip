@@ -1,6 +1,6 @@
 "use client"
 import Link from 'next/link';
-import Logo from '../atoms/Logo';
+import Logo from '../../../public/svg/Logo';
 import { useAuth } from '@/app/context/UserContext';
 
 export default function Header() {
@@ -23,11 +23,7 @@ export default function Header() {
                 PROFILE
               </button>
             </Link>
-            <Link href="/saved-recipes">
-              <button className="px-0 md:px-2 text-xs md:text-base text-slate-600 py-2 font-bold hover:text-slate-800">
-                COLLECTION
-              </button>
-            </Link>
+            
             <button className="px-0 md:px-2 text-xs md:text-base text-slate-600 py-2 font-bold hover:text-slate-800">
             SEARCH
           </button> 
@@ -35,7 +31,7 @@ export default function Header() {
           </div>
           :
           <div className="flex items-center space-x-4">
-            <Link href={"/sign-in"}>
+            <Link href={"/auth"}>
               <button className="px-0 md:px-2 text-xs md:text-base text-slate-600 py-2 font-bold hover:text-slate-800">
                 SIGN IN
               </button>
