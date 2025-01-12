@@ -3,6 +3,7 @@ import "./globals.css";
 import Header from "./components/organisms/Header";
 import Footer from "./components/organisms/Footer";
 import { gentiumPlus, butterChicken, montserrat } from "./styles/fonts";
+import { AuthProvider } from "./context/UserContext";
 
 export const metadata: Metadata = {
   title: "RecipeDrip",
@@ -41,9 +42,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${gentiumPlus.variable} ${montserrat.variable} ${butterChicken.variable}  antialiased`}>
+        <AuthProvider>
         <Header />
         {children}
         <Footer />
+        </AuthProvider>
       </body>
     </html>
   );

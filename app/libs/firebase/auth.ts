@@ -49,7 +49,7 @@ import {
     }
   }
 
-  export async function signOutWithGoogle() {
+  export async function signOut() {
     try {
       await auth.signOut();
     } catch (error) {

@@ -8,8 +8,8 @@ import Grid from '../components/organisms/Grid';
 import { gridClasses } from '../styles/gridClasses';
 import React, { useEffect, useState } from 'react';
 import { fetchRecipes } from '../api/spoonacular';
-import ErrorBlock from '../components/atoms/ErrorBlock';
 import {Recipe } from '../interfaces/Recipe';
+import { ErrorNotificationBlock } from '../components/atoms/NotificationBlock';
 
 export default function Home() {
   const [recipes, setRecipes] = useState<Recipe[]>([]);
@@ -31,7 +31,7 @@ export default function Home() {
   }, []);
 
   if (error) {
-    return <ErrorBlock message={error} />;
+    return <ErrorNotificationBlock message={error} />;
   }
 
   if (!recipes) {
