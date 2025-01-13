@@ -1,4 +1,4 @@
-import BrandLineText from "../../../public/svg/BrandLineText";
+import BrandLineText from "../../svg/BrandLineText";
 
 export default function BrandLine(){
     return(

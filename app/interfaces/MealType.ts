@@ -1,4 +1,5 @@
 export interface MealType{
   id: number;
-  name: string;
+  imageId: number;
+  mealTypeName: string;
   }

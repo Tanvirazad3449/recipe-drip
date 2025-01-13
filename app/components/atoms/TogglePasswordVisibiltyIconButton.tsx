@@ -1,6 +1,6 @@
 import React from 'react'
-import PasswordHiddenIcon from '../../../public/svg/PasswordHiddenIcon'
-import PasswordIcon from '../../../public/svg/PasswordIcon'
+import PasswordHiddenIcon from '../../svg/PasswordHiddenIcon'
+import PasswordIcon from '../../svg/PasswordIcon'
 
 interface TogglePasswordVisibiltyIconButtonProps {
   passwordHidden: boolean;

@@ -1,13 +1,13 @@
 "use client"
 import Link from 'next/link';
-import Logo from '../../../public/svg/Logo';
+import Logo from '../../svg/Logo';
 import { useAuth } from '@/app/context/UserContext';
 
 export default function Header() {
   const { user, loading } = useAuth();
 
   if (loading) {
-    return <></>; 
+    return <></>;
   }
   return (
     <header className="px-2 bg-white text-white py-4 sticky top-0 z-50 border-b-2  md:px-36">
@@ -15,35 +15,19 @@ export default function Header() {
         <Link href="/">
           <Logo />
         </Link>
-        {/* <p className='text-black'>{JSON.stringify(user?.email)}</p> */}
-        {user ?
-          <div className="flex items-center space-x-4">
-            <Link href={"/profile"}>
-              <button className="px-0 md:px-2 text-xs md:text-base text-slate-600 py-2 font-bold hover:text-slate-800">
-                PROFILE
-              </button>
-            </Link>
-            
+        <div className="flex items-center space-x-4">
+          <Link href={user ? "/profile" : "/auth"}>
             <button className="px-0 md:px-2 text-xs md:text-base text-slate-600 py-2 font-bold hover:text-slate-800">
-            SEARCH
-          </button> 
-
-          </div>
-          :
-          <div className="flex items-center space-x-4">
-            <Link href={"/auth"}>
-              <button className="px-0 md:px-2 text-xs md:text-base text-slate-600 py-2 font-bold hover:text-slate-800">
-                SIGN IN
-              </button>
-            </Link>
+              {user ? "PROFILE" : "SIGN IN"}
+            </button>
+          </Link>
+          <Link href={"/search"}>
             <button className="px-0 md:px-2 text-xs md:text-base text-slate-600 py-2 font-bold hover:text-slate-800">
-            SEARCH
-          </button> 
-
-          </div>
-        }
-
-    </div>
+              SEARCH
+            </button>
+          </Link>
+        </div>
+      </div>
     </header >
   );
 }

@@ -11,7 +11,7 @@ import { useAuth } from "@/app/context/UserContext";
 import { MediumButton, MediumButtonWithIcon } from "@/app/components/atoms/Buttons";
 import { Input, InputWithIconButton } from "@/app/components/atoms/Inputs";
 import { RegularText, SmallText } from "@/app/components/atoms/Texts";
-import GoogleLogo from "@/public/svg/GoogleLogo";
+import GoogleLogo from "@/app/svg/GoogleLogo";
 import TogglePasswordVisibiltyIconButton from "@/app/components/atoms/TogglePasswordVisibiltyIconButton";
 
 const SignInPage: React.FC = () => {
@@ -26,7 +26,10 @@ const SignInPage: React.FC = () => {
 
   useEffect(() => {
     setIsMounted(true);
-  }, []);
+    if(user){
+      router.push("/profile")
+    }
+  }, [user]);
 
   const handleGoogleSignIn = async () => {
     try {
@@ -93,13 +96,9 @@ const SignInPage: React.FC = () => {
     return null;
   }
 
-  if (user) {
-    router.push("/profile")
-  }
-
   return (
-    <div className="flex flex-col items-center justify-start min-h-screen bg-gray-100">
-      <div className="bg-white shadow-md max-w-sm w-full">
+    <div className="flex flex-col items-center justify-start min-h-screen bg-gray-100 pt-8">
+      <div className="bg-white shadow-md max-w-sm w-full p-8">
         <RegularText>{isSignInMode ? "Don't" : "Already"} have an account?
           <span
             className="font-bold hover:text-brandColor cursor-pointer"
