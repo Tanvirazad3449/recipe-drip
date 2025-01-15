@@ -22,3 +22,9 @@ export const fetchBulkRecipes = async (arg: string): Promise<RecipeDetails[]> =>
   return await apiClient<RecipeDetails[]>(endpoint, 'GET');
 };
 
+
+export const fetchSearchResults = async (arg: string): Promise<Recipes> => {
+  const endpoint = `/recipes/complexSearch?${arg}&apiKey=${API_KEY}&number=20`;
+  console.log("######## endpoint: ", endpoint)
+  return await apiClient<Recipes>(endpoint, 'GET');
+};

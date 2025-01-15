@@ -39,7 +39,7 @@ export default function Home() {
   }
   return (
     <main className="min-h-screen pb-6">
-      <BrandLine imgPath="./brand.svg" />
+      <BrandLine/>
       <section className='px-4 md:px-28'>
         <Grid headerText="Diets" data={diets} cssClass={gridClasses.diets} minDisplayItems={4} />
       </section>

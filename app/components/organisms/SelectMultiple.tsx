@@ -34,9 +34,11 @@ export default function SelectMultiple<T>({
         <Autocomplete
             multiple
             options={data}
+            
             disableCloseOnSelect
             getOptionLabel={getOptionLabel}
             onChange={onChange}
+            size='small'
             renderOption={
                 renderOption
                     ? renderOption
@@ -57,7 +59,7 @@ export default function SelectMultiple<T>({
                     }
 
             }
-            className='w-full m-4'
+            className='w-full pb-4'
             renderInput={(params) => (
                 <TextField {...params} label={label} placeholder={placeholder} />
             )}
