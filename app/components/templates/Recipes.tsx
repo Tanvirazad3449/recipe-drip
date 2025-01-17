@@ -17,7 +17,7 @@ const Recipes: React.FC = () => {
   }
 
   return (
-    <div className="flex flex-col px-4 xl:px-28 md:px-8 py-4">
+    <div className="flex flex-col px-4 xl:px-28 md:px-8 py-4 min-h-screen">
       <Grid
         headerText={headingText || ""}
         data={recipes}

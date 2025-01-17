@@ -9,16 +9,24 @@ import useSimilarRecipes from "@/app/hooks/useSimilarRecipes";
 import RecipeDetailsSection from "../organisms/RecipeDetailsSection";
 import SimilarRecipesSection from "../organisms/SimilarRecipesSection";
 import { ErrorNotificationBlock, InfoNotificationBlock } from "../atoms/NotificationBlock";
+import { useRouter } from "next/navigation";
+import { auth } from "@/app/libs/firebase/config";
 
 const RecipeInformation: React.FC = () => {
   const pathName = usePathname();
   const recipeId = extractId(pathName);
-
+const router = useRouter();
+  const user = auth.currentUser;
   const { recipeDetails, saved, error: detailsError, setSaved } = useRecipeDetails(recipeId);
   const { similarRecipes, error: similarError } = useSimilarRecipes(recipeId);
 
   const handleSave = async () => {
-    await handleSaveRecipe(recipeId, setSaved);
+    if (!user) {
+      router.push("/auth")
+    }else{
+
+      await handleSaveRecipe(recipeId, setSaved);
+    }
   };
 
   if (detailsError || similarError) {

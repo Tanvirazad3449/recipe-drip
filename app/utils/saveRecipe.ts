@@ -5,11 +5,13 @@ export const handleSaveRecipe = async (
   recipeId: string,
   setSaved: (saved: boolean) => void
 ) => {
+
+  
   const user = auth.currentUser;
 
   if (!user) {
-    alert("Please sign in");
-    return;
+    
+    return null;
   }
 
   try {
