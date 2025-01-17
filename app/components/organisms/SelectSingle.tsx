@@ -15,13 +15,14 @@ export default function SelectSingle({data, label, selected, onChange}:SelectSin
 
   return (
 
-    <FormControl variant='standard' sx={{ minWidth: 150, mr:2 }} size="small">
+    <FormControl sx={{mb:2}} size="small">
         <InputLabel id="demo-simple-select-label">{label}</InputLabel>
         <Select
           labelId="demo-simple-select-label"
           id="demo-simple-select"
           value={selected}
           label={label}
+          sx={{borderRadius:0}}
           onChange={(e:SelectChangeEvent)=>onChange(e.target.value)}
           >
             {data.map((e)=><MenuItem key={e.key} value={e.key}>{e.label}</MenuItem>)}

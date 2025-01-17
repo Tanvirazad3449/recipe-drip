@@ -7,7 +7,7 @@ interface IngredientsSectionProps{
 }
 function IngredientsSection({extendedIngredients}:IngredientsSectionProps) {
   return (
-    <div className='w-full md:w-2/3 '>
+    <div className='w-full xl:w-2/3 '>
                 <List headerText="Ingredients" data={extendedIngredients} />
     </div>
   )

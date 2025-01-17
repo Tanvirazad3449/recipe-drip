@@ -39,6 +39,7 @@ export default function SelectMultiple<T>({
             getOptionLabel={getOptionLabel}
             onChange={onChange}
             size='small'
+            sx={{borderRadius:0}}
             renderOption={
                 renderOption
                     ? renderOption
@@ -61,7 +62,11 @@ export default function SelectMultiple<T>({
             }
             className='w-full pb-4'
             renderInput={(params) => (
-                <TextField {...params} label={label} placeholder={placeholder} />
+                <TextField {...params} label={label} placeholder={placeholder} sx={{
+                    '& .MuiOutlinedInput-root': {
+                        borderRadius: 0, // Set border radius to 0
+                    },
+                }}/>
             )}
         />
     );

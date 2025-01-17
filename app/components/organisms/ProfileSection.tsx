@@ -10,7 +10,7 @@ interface ProfileSectionProps{
 }
 function ProfileSection({user, handleSignOut}: ProfileSectionProps) {
   return (
-    <div className="w-full md:w-1/3 mt-8 bg-white border border-gray-200 p-8 ml-0 md:ml-16">
+    <div className="w-full xl:w-1/3 mt-8 bg-white border border-gray-200 p-8 ml-0 xl:ml-16">
 
         <div className="items-center flex justify-center flex-col">
           <RegularText>Welcome,</RegularText>

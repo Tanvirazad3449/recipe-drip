@@ -21,7 +21,7 @@ const DiscreteSlider: React.FC<DiscreteSliderProps> = ({
   value
 }) => {
   return (
-    <Box sx={{mt:4}}>
+    <Box sx={{mt: 2, backgroundColor: ""}}>
       <Typography gutterBottom >{label}</Typography>
       <Slider
         aria-label={label}
@@ -30,6 +30,7 @@ const DiscreteSlider: React.FC<DiscreteSliderProps> = ({
         step={step}
         marks
         min={min}
+        sx={{color: "#783c5c"}}
         max={max}
         value={value}
         onChange={(_, v) => {

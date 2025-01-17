@@ -15,7 +15,7 @@ interface ImageProps {
     return(
         <img
             src={imageSrc}
-            className={`w-full md:w-1/2 h-auto ${className}`}
+            className={`w-full xl:w-1/2 h-auto ${className}`}
             onError={() => setIsDeadLink(true)}
           />
     )

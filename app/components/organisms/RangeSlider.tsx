@@ -7,23 +7,22 @@ function valuetext() {
   return ``;
 }
 
-interface RangeSliderProps{
+interface RangeSliderProps {
   label: string;
   setValue: (event: Event, value: number | number[]) => void;
   value: number | number[];
 }
 
-export default function RangeSlider({label, setValue, value}:RangeSliderProps) {
-  
-
+export default function RangeSlider({ label, setValue, value }: RangeSliderProps) {
   return (
-    <Box sx={{mt:4}}>
+    <Box sx={{ mt: 2, backgroundColor: "" }}>
       <Typography>{label}</Typography>
       <Slider
-      marks
-      step={1}
-      max={15}
-      
+        marks
+        step={1}
+        max={15}
+        sx={{ color: "#783c5c" }}
+
         value={value}
         onChange={setValue}
         valueLabelDisplay="auto"

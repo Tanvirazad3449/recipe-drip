@@ -7,7 +7,7 @@ interface SimilarRecipesSectionProps {
 }
 function SimilarRecipesSection({ similarRecipes }: SimilarRecipesSectionProps) {
   return (
-    <div className="mt-4 w-full md:w-1/3 md:mt-0">
+    <div className="mt-4 w-full xl:w-1/3 xl:mt-0">
       {similarRecipes?.length > 0 &&
         <Grid
           headerText="Similar Recipes"

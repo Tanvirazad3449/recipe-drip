@@ -13,6 +13,7 @@ import { IngredientType } from '@/app/interfaces/IngredientType';
 import DiscreteSlider from '../organisms/DiscreteSlider';
 import RangeSlider from '../organisms/RangeSlider';
 import { SearchFilterTypes } from '@/app/interfaces/SearchFilterType';
+import SearchSortBar from './SearchSortBar';
 
   
   interface SearchFilterProps {
@@ -23,7 +24,7 @@ function SearchFilters({ selectedValues, setSelectedValues }: SearchFilterProps)
 
     const handleChangeMultiple = <T,>(key: keyof typeof selectedValues, getName: (item: T) => string) => (event: React.SyntheticEvent, value: T[]) => {
         if (Array.isArray(value)) {
-            const selectedNames = value.map(getName).join(", ");
+            const selectedNames = value.map(getName).join(",");
             setSelectedValues((prev) => ({ ...prev, [key]: selectedNames }));
         }
     };
@@ -48,6 +49,7 @@ function SearchFilters({ selectedValues, setSelectedValues }: SearchFilterProps)
         // <div className='w-full p-4'>
         <Box width="100%">
             {/* <p className='overflow-scroll'>{JSON.stringify(selectedValues)}</p> */}
+            <SearchSortBar selectedValues={selectedValues} setSelectedValues={setSelectedValues} />
 
             <SelectMultiple
                 data={cuisines}

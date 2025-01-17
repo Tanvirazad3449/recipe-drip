@@ -11,13 +11,13 @@ const RegularText = ({className = "", children}:TextProps) => {
 
 const HeadingText = ({className = "", children}:TextProps) => {
     return(
-        <h1 className={`m-0 mb-1 text-2xl md:text-3xl ${textClass} font-montserrat ${className}`}>{children}</h1>
+        <h1 className={`m-0 mb-1 text-2xl xl:text-3xl ${textClass} font-montserrat ${className}`}>{children}</h1>
     )
 }
 
 const SubHeadingText = ({className = "", children}:TextProps) => {
     return(
-        <h1 className={`text-2xl md:text-3xl ${textClass} font-gentiumPlus font-bold ${className}`}>{children}</h1>
+        <h1 className={`text-2xl xl:text-3xl ${textClass} font-gentiumPlus font-bold ${className}`}>{children}</h1>
     )
 }
 

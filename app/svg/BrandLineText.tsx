@@ -3,7 +3,7 @@ import * as React from "react";
 const BrandLineText = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    className='h-8 md:h-16 w-auto'
+    className='h-8 xl:h-16 w-auto'
     fill="none"
     viewBox="0 0 868 106"
   >

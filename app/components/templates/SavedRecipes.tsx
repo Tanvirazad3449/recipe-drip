@@ -22,7 +22,7 @@ const SavedRecipes = () => {
   }
 
   return (
-    <div className="w-full md:w-2/3 pt-4">
+    <div className="w-full xl:w-2/3 pt-4">
       {loading ? (<InfoNotificationBlock message="Loading your saved recipes..." />) 
       : recipesData.length > 0 && !loading ? (
           <Grid

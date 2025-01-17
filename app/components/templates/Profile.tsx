@@ -28,7 +28,7 @@ export default function Profile() {
   };
 
   return (
-    <div className="flex flex-col-reverse md:flex-row items-start justify-start min-h-screen w-full px-4 md:px-28 mt-2 pb-8">
+    <div className="flex flex-col-reverse xl:flex-row items-start justify-start min-h-screen w-full px-4 xl:px-28 md:px-8 mt-2 pb-8">
       <SavedRecipes />
       <ProfileSection user={user} handleSignOut={handleSignOut}/>
     </div>

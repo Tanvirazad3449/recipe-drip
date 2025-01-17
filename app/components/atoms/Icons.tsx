@@ -9,7 +9,7 @@ const LargeIcon = ({ iconSrc, iconName }: IconProps) => {
         return (
             <img
                 src={'/no-image-found-square.jpg'}
-                className="w-10 h-auto max-h-10 md:w-10 md:h-auto object-contain"
+                className="w-10 h-auto max-h-10 xl:w-10 xl:h-auto object-contain"
                 alt="Icon"
             /> 
         )
@@ -17,7 +17,7 @@ const LargeIcon = ({ iconSrc, iconName }: IconProps) => {
     return (
          <img
                 src={iconSrc}
-                className="w-10 h-auto max-h-10 md:w-10 md:h-auto object-contain"
+                className="w-10 h-auto max-h-10 xl:w-10 xl:h-auto object-contain"
                 alt="Icon"
             /> 
     )

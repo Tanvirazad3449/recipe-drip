@@ -11,7 +11,7 @@ interface DietSectionProps{
 }
 function DietSection({dairyFree, glutenFree, vegan, vegetarian}:DietSectionProps) {
   return (
-    <div className='pl-0 md:pl-8 w-full md:w-1/3 flex flex-col mt-6 md:mt-2'>
+    <div className='pl-0 xl:pl-8 w-full xl:w-1/3 flex flex-col mt-6 xl:mt-2'>
             <HeadingText>Diet</HeadingText>
             <Tables>
               <TableRowKeyValuePair attribute="Dairy-free?" value={dairyFree} />

@@ -13,6 +13,7 @@ interface InputProps {
   onClickStartIcon?: ()=>void;
   onClickIcon?: ()=>void;
   isStartIconVisible?: boolean;
+  isEndIconVisible?: boolean;
 
 }
 const Input = ({ type, placeholder, value, onChange, className = "" }: InputProps) => {
@@ -30,11 +31,11 @@ const Input = ({ type, placeholder, value, onChange, className = "" }: InputProp
   )
 }
 
-const InputWithIconButton = ({ type, placeholder, value, onChange, className = "", icon, labelHidden, startIcon, onClickStartIcon, onClickIcon, isStartIconVisible }: InputProps) => {
+const InputWithIconButton = ({ type, placeholder, value, onChange, className = "", icon, labelHidden, startIcon, onClickStartIcon, onClickIcon, isStartIconVisible, isEndIconVisible }: InputProps) => {
   return (
     <>
     <SmallText className={`font-bold mb-2 ${labelHidden ? "hidden" : ""}`}>{placeholder}</SmallText>
-    <div className="w-full p-2 mb-4 border flex flex-row justify-center items-center bg-white">
+    <div className="w-full p-2 border flex flex-row justify-center items-center bg-white">
       {isStartIconVisible && <span onClick={onClickStartIcon} className="pr-2">
 
     {startIcon}
@@ -47,10 +48,12 @@ const InputWithIconButton = ({ type, placeholder, value, onChange, className = "
     onChange={onChange}
     className={`focus:outline-none  flex-1 ${className}`}
     />
+    {isEndIconVisible && 
     <span onClick={onClickIcon} className="p-1">
 
     {icon}
     </span>
+}
     </div>
     </>
   )
