@@ -1,4 +1,4 @@
-import { SearchFilterTypes } from "../interfaces/SearchFilterType";
+import { SearchFilterTypes } from "../types/search/filters";
 
 export function getSearchParam(selectedValues: SearchFilterTypes){
     let url = ""

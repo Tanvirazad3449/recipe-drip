@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { fetchBulkRecipes } from '@/app/api/spoonacular'; // Ensure the API function is imported
-import { RecipeDetails } from '@/app/interfaces/Recipe';
+import { RecipeDetails } from '@/app/types/domain/recipe/recipe';
 
 const useBulkRecipes = (likedRecipesIds: string[], loadingSavedRecipesIds: boolean) => {
   const [recipesData, setRecipesData] = useState<RecipeDetails[]>([]);

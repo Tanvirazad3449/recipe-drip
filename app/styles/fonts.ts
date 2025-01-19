@@ -1,4 +1,3 @@
-import localFont from 'next/font/local'
 import {Gentium_Plus, Montserrat} from 'next/font/google'
 
 const gentiumPlus = Gentium_Plus({
@@ -13,10 +12,6 @@ const montserrat = Montserrat({
     weight: ["400", "500"],
     variable: "--font-montserrat"
 })
-const butterChicken = localFont({ 
-    src: './Butter-Chicken.ttf', 
-    variable: "--font-butter-chicken"
-})
 
  
-export { butterChicken, gentiumPlus, montserrat }
+export { gentiumPlus, montserrat }

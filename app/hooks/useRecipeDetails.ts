@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { doc, getDoc } from "firebase/firestore";
 import { fetchRecipeInformation } from "@/app/api/spoonacular";
-import { RecipeDetails } from "@/app/interfaces/Recipe";
+import { RecipeDetails } from "@/app/types/domain/recipe/recipe";
 import { auth, db } from "../libs/firebase/config";
 
 const useRecipeDetails = (recipeId: string | null) => {

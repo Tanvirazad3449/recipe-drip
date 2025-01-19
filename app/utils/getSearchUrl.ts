@@ -1,7 +1,7 @@
 import { ReadonlyURLSearchParams } from 'next/navigation';
 
-const getSearchUrl = (slug: string, searchParams: ReadonlyURLSearchParams): string => {
-  let url = slug + "?";
+const getSearchUrl = (searchParams: ReadonlyURLSearchParams): string => {
+  let url = ""
   const keys = ["diet", "type", "cuisine", "ingredients"];
 
   keys.forEach((key) => {
@@ -10,7 +10,6 @@ const getSearchUrl = (slug: string, searchParams: ReadonlyURLSearchParams): stri
       url += `${key}=${value}&`;
     }
   });
-console.log("this is the url from getSearchUrl: ", url)
   return url.endsWith("&") ? url.slice(0, -1) : url;
 };
 

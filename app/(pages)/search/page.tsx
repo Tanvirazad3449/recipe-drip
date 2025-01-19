@@ -1,7 +1,7 @@
 "use client"
 
+import Search from "@/app/features/search";
 import React, { Suspense } from "react";
-import Search from "@/app/components/templates/Search";
 
 const SearchPage: React.FC = () => {
   return (

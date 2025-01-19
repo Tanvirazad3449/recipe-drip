@@ -21,11 +21,17 @@
     "baseUrl": "./",
     "paths": {
       "@/*": ["./*"],
+      "@app/*": ["app/*"],
       "@components/*": ["app/components/*"],
+      "@atoms/*": ["app/components/shared/*"],
+      "@molecules/*": ["app/components/molecules/*"],
+      "@organisms/*": ["app/components/organisms/*"],
+      "@templates/*": ["app/components/templates/*"],
+      "@pages/*": ["app/components/pages/*"],
       "@utils/*": ["app/utils/*"],
       "@styles/*": ["app/styles/*"],
       "@api/*": ["app/api/*"],
-      "@interfaces/*": ["app/interfaces/*"],
+      "@interfaces/*": ["app/types/*"],
       "@libs/*": ["app/libs/*"]
     }
   },

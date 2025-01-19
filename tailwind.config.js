@@ -29,7 +29,6 @@ module.exports = {
         }
       },
       fontFamily: {
-        butterChicken: ['var(--font-butter-chicken)', 'sans-serif'], // Fallback font
         gentiumPlus: ['var(--font-gentium-plus)', 'cursive'], // Fallback font
         montserrat: ['var(--font-montserrat)', 'sans-serif']
       }}

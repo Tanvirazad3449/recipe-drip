@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { fetchSearchResults } from "@/app/api/spoonacular";
-import { Recipe } from "@/app/interfaces/Recipe";
+import { Recipe } from "@/app/types/domain/recipe/recipe";
 
 export const useFetchRecipes = () => {
   const [data, setData] = useState<Recipe[] | []>([]);

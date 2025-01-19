@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import Header from "./components/organisms/Header";
-import Footer from "./components/organisms/Footer";
-import { gentiumPlus, butterChicken, montserrat } from "./styles/fonts";
-import { AuthProvider } from "./context/UserContext";
+import Header from "./components/shared/layout/Header";
+import Footer from "./components/shared/layout/Footer";
+import { gentiumPlus, montserrat } from "./styles/fonts";
+import { AuthProvider } from "./contexts/UserContext";
 
 export const metadata: Metadata = {
   title: "RecipeDrip",
@@ -41,7 +41,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${gentiumPlus.variable} ${montserrat.variable} ${butterChicken.variable}  antialiased`}>
+      <body className={`${gentiumPlus.variable} ${montserrat.variable} antialiased`}>
         <AuthProvider>
         <Header />
         {children}

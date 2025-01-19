@@ -1,5 +1,5 @@
 "use client";
-import RecipeInformation from "@/app/components/templates/RecipeInformation";
+import RecipeInformation from "@/app/features/recipeInformation";
 import React from "react";
 const RecipeInformationPage: React.FC = () => {
   return (
