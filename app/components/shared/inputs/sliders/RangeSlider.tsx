@@ -9,22 +9,27 @@ function valuetext() {
 
 interface RangeSliderProps {
   label: string;
-  setValue: (event: Event, value: number | number[]) => void;
-  value: number | number[];
+  onChange: (value: number[]) => void;
+  value: number[];
 }
 
-export default function RangeSlider({ label, setValue, value }: RangeSliderProps) {
+export default function RangeSlider({ label, onChange, value }: RangeSliderProps) {
   return (
     <Box sx={{ mt: 2, backgroundColor: "" }}>
       <Typography>{label}</Typography>
       <Slider
         marks
         step={1}
+        min={1}
         max={15}
         sx={{ color: "#783c5c" }}
-
         value={value}
-        onChange={setValue}
+        // onChange={setValue}
+        onChange={(_, v) => {
+          if (Array.isArray(v)) {
+            onChange(v)
+          }
+        }}
         valueLabelDisplay="auto"
         getAriaValueText={valuetext}
       />

@@ -6,7 +6,7 @@ interface TablesProps {
 
 const TableContainer: React.FC<TablesProps> = ({ children }) => {
     return (
-        <table className="min-w-full table-auto border border-brandColor-200 mt-2">
+        <table className="min-w-full table-auto border border-brandColor-200">
             <tbody>
                 {children}
             </tbody>

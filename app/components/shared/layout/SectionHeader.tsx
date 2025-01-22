@@ -4,16 +4,16 @@ import capitalize from "@/app/utils/capitalize";
 
 interface SectionHeaderProps {
   headerText: string;
-  toggleItemView?: () => void;
+  setIsExpanded?: () => void;
   isExpanded?: boolean;
   showExpandButton?: boolean;
 }
 
-const SectionHeader = ({ headerText, toggleItemView, isExpanded, showExpandButton }: SectionHeaderProps) => {
+const SectionHeader = ({ headerText, setIsExpanded, isExpanded, showExpandButton }: SectionHeaderProps) => {
   return (
-    <div className="justify-between align-middle flex my-2 items-center">
+    <div className="justify-between align-middle flex mb-2 items-end">
       <HeadingText>{capitalize(headerText)}</HeadingText>
-      <Button size="small" onClick={toggleItemView} className={`${showExpandButton ? "" : "hidden"}`}>
+      <Button size="small" onClick={setIsExpanded} className={`${showExpandButton ? "" : "hidden"}`}>
         {`Show ${isExpanded ? "Less" : "More"}`}
       </Button>
     </div>

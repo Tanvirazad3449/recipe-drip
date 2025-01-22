@@ -8,16 +8,15 @@ interface SimilarRecipesSectionProps {
 }
 function SimilarRecipesSection({ similarRecipes, loading }: SimilarRecipesSectionProps) {
   return (
-    <div className="mt-4 w-full xl:w-1/3 xl:mt-0">
-      {similarRecipes?.length > 0 &&
-        <Grid
+    <div className="mt-4 w-full xl:w-1/3 xl:mt-1">
+      <Grid
         type="recipe"
         loading={loading}
-          headerText="Similar Recipes"
-          data={similarRecipes}
-          cssClass={gridClasses.recipesSmallGrid}
-          minDisplayItems={4}
-        />}
+        headerText="Similar Recipes"
+        data={similarRecipes}
+        cssClass={gridClasses.recipesSmallGrid}
+        minDisplayItems={4}
+      />
     </div>
   )
 }

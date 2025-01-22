@@ -1,8 +1,8 @@
 import { ReadonlyURLSearchParams } from 'next/navigation';
 
-const getSearchUrl = (searchParams: ReadonlyURLSearchParams): string => {
+const getRecipesUrl = (searchParams: ReadonlyURLSearchParams): string => {
   let url = ""
-  const keys = ["diet", "type", "cuisine", "ingredients"];
+  const keys = ["diet", "type", "cuisine", "includeIngredients"];
 
   keys.forEach((key) => {
     const value = searchParams.get(key);
@@ -13,4 +13,4 @@ const getSearchUrl = (searchParams: ReadonlyURLSearchParams): string => {
   return url.endsWith("&") ? url.slice(0, -1) : url;
 };
 
-export default getSearchUrl;
+export default getRecipesUrl;

@@ -1,14 +1,14 @@
 import React from 'react'
 import { HeadingText, RegularTextHTML } from '../../../components/ui/Texts'
-interface SummarySectionProps{
+interface SummarySectionProps {
   summary: string;
 }
-function SummarySection({summary}:SummarySectionProps) {
+function SummarySection({ summary }: SummarySectionProps) {
   return (
     <div className="mt-8">
-  <HeadingText className="mt-8">Summary</HeadingText>
-  <RegularTextHTML text={summary} />
-</div>
+      <HeadingText className="mt-8">Summary</HeadingText>
+      <RegularTextHTML text={summary} />
+    </div>
   )
 }
 

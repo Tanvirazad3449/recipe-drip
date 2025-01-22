@@ -8,7 +8,7 @@ interface DiscreteSliderProps {
   max: number;
   step: number;
   label: string;
-  setValue: (value: number) => void;
+  onChange: (value: number) => void;
   value: number;
 }
 
@@ -17,7 +17,7 @@ const DiscreteSlider: React.FC<DiscreteSliderProps> = ({
   max,
   step,
   label,
-  setValue,
+  onChange,
   value
 }) => {
   return (
@@ -35,7 +35,7 @@ const DiscreteSlider: React.FC<DiscreteSliderProps> = ({
         value={value}
         onChange={(_, v) => {
           if (typeof v === "number") {
-            setValue(v)
+            onChange(v)
           }
         }}
       />

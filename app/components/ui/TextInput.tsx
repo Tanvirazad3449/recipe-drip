@@ -31,7 +31,7 @@ const TextInput = ({ type, placeholder, label, value, onChange, className = "", 
                     placeholder={placeholder}
                     value={value}
                     onChange={onChange}
-                    className={`focus:outline-none  flex-1 ${className}`}
+                    className={`focus:outline-none  flex-1 ${className} ml-2`}
                 />
                 {endIcon &&
                     <span onClick={onClickEndIcon} className="p-1">

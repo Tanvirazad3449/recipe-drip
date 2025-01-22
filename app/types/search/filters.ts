@@ -5,7 +5,8 @@ export interface SearchFilterTypes {
     sort: string;
     sortDirection: string;
     maxReadyTime: number;
-    servings: number | number[];
+    minServings: number;
+    maxServings: number;
     includeIngredients: string;
     excludeIngredients: string;
     titleMatch: boolean;

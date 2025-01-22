@@ -12,7 +12,7 @@ interface ListItemsProps {
 const ListItemIngredient: React.FC<ListItemsProps> = ({ item }) => {  
     if(item.id !== -1){
       return (
-        <Link href={`/recipes/findByIngredients?ingredients=${item.nameClean}`}>
+        <Link href={`/recipes/complexSearch?includeIngredients=${item.nameClean}`}>
         <Container key={item.id} className="flex items-center justify-start p-2 mb-2 border border-brandColor-200 bg-white">
           <div className="w-1/12 pl-2">
             <ImageIcon iconSrc={getIngredientsImageSrc(item.image)} iconName={item.image} />

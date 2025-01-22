@@ -26,8 +26,8 @@ const List = ({ headerText, data, type }: ListProps<CuisineType | IngredientDeta
   }
 
   return (
-    <div>
-      <HeadingText className='py-2'>{headerText}</HeadingText>
+    <div className='mt-4 xl:mt-0'>
+      <HeadingText className='mb-2'>{headerText}</HeadingText>
       <ul className="list-none flex flex-col">
         {data.map(renderListItem)}
       </ul>

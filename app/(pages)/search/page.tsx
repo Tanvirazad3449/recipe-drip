@@ -6,7 +6,7 @@ import React, { Suspense } from "react";
 const SearchPage: React.FC = () => {
   return (
     <Suspense>
-    <Search/>
+      <Search />
     </Suspense>
   );
 };

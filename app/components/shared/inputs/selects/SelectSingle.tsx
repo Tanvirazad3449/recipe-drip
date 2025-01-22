@@ -7,20 +7,20 @@ import Select, { SelectChangeEvent } from '@mui/material/Select';
 interface SelectSingleProps{
     data: {key: string, label: string}[];
     label: string;
-    selected: string;
+    value: string;
     onChange: (value: string) => void;
 }
-export default function SelectSingle({data, label, selected, onChange}:SelectSingleProps) {
+export default function SelectSingle({data, label, value, onChange}:SelectSingleProps) {
  
 
   return (
 
-    <FormControl sx={{mb:2}} size="small">
+    <FormControl sx={{mb:2, width: '100%'}} size="small">
         <InputLabel id="demo-simple-select-label">{label}</InputLabel>
         <Select
           labelId="demo-simple-select-label"
           id="demo-simple-select"
-          value={selected}
+          value={value}
           label={label}
           sx={{borderRadius:0}}
           onChange={(e:SelectChangeEvent)=>onChange(e.target.value)}

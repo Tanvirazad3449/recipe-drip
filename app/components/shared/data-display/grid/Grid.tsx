@@ -10,6 +10,7 @@ import GridItemRecipe from "./GridItemRecipe";
 import GridItemMealType from "./GridItemMealType";
 import GridSkeleton from "./GridSkeleton";
 import { DietType, MealType } from "@/app/types/domain/recipe/attributes";
+import { useToggle } from "@/app/hooks/useToggle";
 
 type GridProps<T> = {
   headerText: string;
@@ -21,11 +22,8 @@ type GridProps<T> = {
 };
 
 const Grid = ({ headerText, data, cssClass, minDisplayItems, loading, type }: GridProps<DietType | MealType | Recipe>) => {
-  const [isExpanded, setIsExpanded] = useState(false);
+  const { value: isExpanded, toggle: setIsExpanded } = useToggle();
   const itemsToShow = isExpanded ? data : data.slice(0, minDisplayItems);
-  function toggleItemView(): void {
-    setIsExpanded((prev) => !prev)
-  }
 
   const renderGridItem = (gridObj: DietType | MealType | Recipe) => {
     switch (type) {
@@ -43,7 +41,7 @@ const Grid = ({ headerText, data, cssClass, minDisplayItems, loading, type }: Gr
     <div>
       <SectionHeader
         headerText={headerText}
-        toggleItemView={toggleItemView}
+        setIsExpanded={setIsExpanded}
         isExpanded={isExpanded}
         showExpandButton={true}
       />

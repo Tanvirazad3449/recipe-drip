@@ -1,28 +1,30 @@
 "use client";
-import React from 'react';
+import React, { useEffect } from 'react';
 import { gridClasses } from '@/app/styles/gridClasses';
-import useRecipes from '@/app/hooks/useRecipes';
-import { NotificationBlock } from '@/app/components/ui/NotificationBlock';
 import Grid from '@/app/components/shared/data-display/grid/Grid';
+import { useSearchParams } from 'next/navigation';
+import { useFetchRecipes } from '@/app/hooks/useFetchRecipes';
+import getRecipesUrl from './hooks/getRecipesUrl';
 
 const Recipes: React.FC = () => {
-  const { recipes, error, headingText, loading } = useRecipes();
+  const searchParams = useSearchParams();
 
-  if (error) {
-    return <NotificationBlock type='error' message={error} />;
-  }
+  const url = getRecipesUrl(searchParams);
 
-  if (!recipes) {
-    return <NotificationBlock type="info" message='No recipes to show'/>;
-  }
+  const { data, loading, loadRecipes } = useFetchRecipes();
+  const headingText = searchParams.get("diet") || searchParams.get("type") || searchParams.get("cuisine") || searchParams.get("includeIngredients");
+
+  useEffect(() => {
+    loadRecipes(url)
+  }, [])
 
   return (
     <div className="flex flex-col px-4 xl:px-28 md:px-8 py-4 min-h-screen">
       <Grid
-      type="recipe"
-      loading={loading}
+        type="recipe"
+        loading={loading}
         headerText={headingText || ""}
-        data={recipes}
+        data={data}
         cssClass={gridClasses.recipesBigGrid}
         minDisplayItems={8}
       />

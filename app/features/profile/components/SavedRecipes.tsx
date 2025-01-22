@@ -1,8 +1,8 @@
 "use client";
 
 import { gridClasses } from "@/app/styles/gridClasses";
-import useBulkRecipes from "@/app/hooks/useBulkRecipes";
-import useSavedRecipes from "@/app/hooks/useSavedRecipes";
+import useBulkRecipes from "@/app/features/profile/hooks/useBulkRecipes";
+import useSavedRecipes from "@/app/features/profile/hooks/useSavedRecipes";
 import { NotificationBlock } from "@/app/components/ui/NotificationBlock";
 import Grid from "@/app/components/shared/data-display/grid/Grid";
 import { useAuth } from "@/app/contexts/UserContext";
@@ -24,13 +24,13 @@ const SavedRecipes = () => {
   return (
     <div className="w-full xl:w-2/3 pt-4">
       <Grid
-      type="recipe"
-          loading={loading}
-            headerText="Your Saved Recipes"
-            data={recipesData}
-            cssClass={gridClasses.recipes}
-            minDisplayItems={100}
-          />
+        type="recipe"
+        loading={loading}
+        headerText="Your Saved Recipes"
+        data={recipesData}
+        cssClass={gridClasses.recipes}
+        minDisplayItems={100}
+      />
     </div>
   );
 };

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { getSavedRecipes } from '../libs/firebase/config';
+import { getSavedRecipes } from '../../../libs/firebase/config';
 
 const useSavedRecipes = (userId: string | null) => {
   const [savedRecipesIds, setSavedRecipesIds] = useState<string[]>([]);

@@ -13,19 +13,21 @@ interface SelectMultipleProps<T> {
     data: T[];
     label?: string;
     placeholder?: string;
+    value: T[];
     getOptionLabel: (option: T) => string;
     renderOption?: (
         props: React.HTMLAttributes<HTMLLIElement>,
         option: T,
         state: { selected: boolean }
     ) => React.ReactNode;
-    onChange?: (event: React.SyntheticEvent, value: T[]) => void;
+    onChange: (value: T[]) => void;
 }
 
 export default function SelectMultiple<T>({
     data,
     label = 'Select Options',
     placeholder = 'Choose...',
+    value,
     getOptionLabel,
     renderOption,
     onChange,
@@ -34,10 +36,14 @@ export default function SelectMultiple<T>({
         <Autocomplete
             multiple
             options={data}
-            
+            value={value}
             disableCloseOnSelect
             getOptionLabel={getOptionLabel}
-            onChange={onChange}
+            onChange={(_, v)=>{
+                if (Array.isArray(v)) {
+                    onChange(v)
+                  }
+            }}
             size='small'
             sx={{borderRadius:0}}
             renderOption={

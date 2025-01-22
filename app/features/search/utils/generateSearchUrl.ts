@@ -1,6 +1,6 @@
-import { SearchFilterTypes } from "../types/search/filters";
+import { SearchFilterTypes } from "../../../types/search/filters";
 
-export function getSearchParam(selectedValues: SearchFilterTypes){
+export function generateSearchUrl(selectedValues: SearchFilterTypes){
     let url = ""
 for (const key in selectedValues) {
       const element = selectedValues[key as keyof SearchFilterTypes];
@@ -13,13 +13,10 @@ for (const key in selectedValues) {
         url += `${key}=${selectedValues.query}&`
       }
 
-      if(key === "maxReadyTime"){
+      if(key === "maxReadyTime" || key === "minServings" || key === "maxServings"){
         url += `${key}=${element}&`
       }
       
-      if(key === "servings" && Array.isArray(element)){
-        url += `minServings=${element[0]}&maxServings=${element[1]}&`
-      }
     }
     url = url.slice(0,-1)
     return url
