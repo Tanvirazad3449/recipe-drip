@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 
 import { Recipe } from "@/app/types/domain/recipe/recipe";
 import SectionHeader from "@/app/components/shared/layout/SectionHeader";
