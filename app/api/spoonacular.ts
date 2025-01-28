@@ -1,3 +1,4 @@
+"use server"
 import { Recipe, RecipeDetails, Recipes } from "../types/domain/recipe/recipe";
 import { apiClient } from "./apiClient";
 
@@ -17,8 +18,13 @@ export const fetchBulkRecipes = async (arg: string): Promise<RecipeDetails[]> =>
   return await apiClient<RecipeDetails[]>(endpoint, 'GET');
 };
 
-export const fetchSearchResults = async (arg: string): Promise<Recipes> => {
-  const endpoint = `/recipes/complexSearch?${arg}&apiKey=${API_KEY}&number=20`;
-  console.log("###### complexSearch called", endpoint)
-  return await apiClient<Recipes>(endpoint, 'GET');
+export const fetchRecipes = async (arg: string): Promise<any[]> => {
+  try {
+    const endpoint = `/recipes/complexSearch?${arg}&apiKey=${API_KEY}&number=20`;
+    const res: Recipes = await apiClient<Recipes>(endpoint, 'GET');
+    return res.results; // Return the results directly
+  } catch (error) {
+    console.error('Error fetching recipes:', error);
+    throw new Error('Failed to fetch recipes');
+  }
 };

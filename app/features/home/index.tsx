@@ -1,5 +1,3 @@
-"use client"
-
 
 import React from 'react';
 import BrandLine from '@/app/components/shared/layout/BrandLine';

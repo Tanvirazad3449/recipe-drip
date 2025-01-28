@@ -3,7 +3,7 @@ import React, { useEffect } from 'react';
 import { gridClasses } from '@/app/styles/gridClasses';
 import Grid from '@/app/components/shared/data-display/grid/Grid';
 import { useSearchParams } from 'next/navigation';
-import { useFetchRecipes } from '@/app/hooks/useFetchRecipes';
+import { useRecipes } from '@/app/hooks/useRecipes';
 import getRecipesUrl from './hooks/getRecipesUrl';
 
 const Recipes: React.FC = () => {
@@ -11,7 +11,7 @@ const Recipes: React.FC = () => {
 
   const url = getRecipesUrl(searchParams);
 
-  const { data, loading, loadRecipes } = useFetchRecipes();
+  const { data, loading, loadRecipes } = useRecipes();
   const headingText = searchParams.get("diet") || searchParams.get("type") || searchParams.get("cuisine") || searchParams.get("includeIngredients");
 
   useEffect(() => {

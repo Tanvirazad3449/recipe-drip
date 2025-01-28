@@ -2,7 +2,7 @@ import React from 'react'
 import { RegularText } from '../../../components/ui/Texts'
 import { Button } from '../../../components/ui/Button'
 interface SaveRecipeSectionProps{
-    saved: boolean;
+    saved: boolean | undefined;
     handleSave: ()=>void;
 }
 function SaveRecipeSection({ saved, handleSave }: SaveRecipeSectionProps) {

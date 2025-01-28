@@ -1,7 +1,7 @@
 import { useState, useCallback, useEffect } from 'react';
 import { SearchFilterTypes } from '@/app/types/search/filters';
 import { debounce } from '@/app/utils/debounce';
-import { useFetchRecipes } from '@/app/hooks/useFetchRecipes';
+import { useRecipes } from '@/app/hooks/useRecipes';
 import { useToggle } from '../../../hooks/useToggle';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { usePathname } from 'next/navigation';
@@ -13,7 +13,7 @@ export const useSearch = () => {
     const pathName = usePathname();
     const searchParams = useSearchParams()
 
-    const { data, loading, loadRecipes, setData, setLoading } = useFetchRecipes();
+    const { data, loading, loadRecipes, setData, setLoading } = useRecipes();
     const [selectedValues, setSelectedValues] = useState<SearchFilterTypes>(defaultSelectedValues);
     const { value: isOpen, toggle: toggleDrawer } = useToggle();
 

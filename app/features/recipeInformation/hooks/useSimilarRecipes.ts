@@ -4,7 +4,7 @@ import { Recipe } from "@/app/types/domain/recipe/recipe";
 
 const useSimilarRecipes = (recipeId: string | null) => {
   const [similarRecipes, setSimilarRecipes] = useState<Recipe[] | []>([]);
-  const [error, setError] = useState<string | null>(null);
+  const [error, setError] = useState<string | undefined>(undefined);
   const [loading, setLoading] = useState<boolean>(false);
   useEffect(() => {
     if (!recipeId) return;

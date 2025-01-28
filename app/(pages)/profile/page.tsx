@@ -1,4 +1,3 @@
-"use client"
 
 import Profile from "@/app/features/profile";
 

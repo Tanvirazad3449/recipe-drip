@@ -1,42 +1,32 @@
-import { useState, useEffect } from "react";
-import { doc, getDoc } from "firebase/firestore";
+import { useEffect, useReducer } from "react";
 import { fetchRecipeInformation } from "@/app/api/spoonacular";
-import { RecipeDetails } from "@/app/types/domain/recipe/recipe";
-import { auth, db } from "../../../libs/firebase/config";
+import { ACTION_TYPES } from "@/app/actionTypes/recipeDetailsActions";
+import { AxiosError } from "axios";
+import recipeDetailsReducer from "@/app/features/recipeInformation/reducers/recipeDetailsReducer";
+import { INITIAL_STATE } from "@/app/reducers/fetchReducers/initialState";
+import { handleError } from "@/app/reducers/fetchReducers/handleError";
 
 const useRecipeDetails = (recipeId: string | null) => {
-  const [recipeDetails, setRecipeDetails] = useState<RecipeDetails | null>(null);
-  const [saved, setSaved] = useState<boolean>(false);
-  const [error, setError] = useState<string | null>(null);
+  
+  const [state, dispatch] = useReducer(recipeDetailsReducer, INITIAL_STATE);
 
   useEffect(() => {
     if (!recipeId) return;
-
     const fetchData = async () => {
+      dispatch({ type: ACTION_TYPES.FETCH_START });
       try {
-        const recipeDetailsResponse = await fetchRecipeInformation(recipeId);
-        setRecipeDetails(recipeDetailsResponse);
+        const res = await fetchRecipeInformation(recipeId);
+        dispatch({ type: ACTION_TYPES.FETCH_SUCCESS, payload: res });
 
-        const user = auth.currentUser;
-        if (user) {
-          const docRef = doc(db, "savedRecipes", user.uid);
-          const docSnap = await getDoc(docRef);
-          if (docSnap.exists()) {
-            const savedRecipes = docSnap.data()?.savedRecipes || [];
-            setSaved(savedRecipes.includes(recipeId));
-          }
-        }
       } catch (err) {
-        if (err instanceof Error) {
-          setError(err.message || "Failed to fetch recipe details.");
-        }
+        handleError(dispatch, err)
       }
     };
 
     fetchData();
   }, [recipeId]);
 
-  return { recipeDetails, saved, setSaved, error };
+  return { state };
 };
 
 export default useRecipeDetails;

@@ -1,20 +1,32 @@
-import Grid from '@/app/components/shared/data-display/grid/Grid'
-import { useFetchRecipes } from '@/app/hooks/useFetchRecipes';
+import Grid from '@/app/components/shared/data-display/grid/Grid';
 import { gridClasses } from '@/app/styles/gridClasses';
-import React, { useEffect } from 'react'
+import React from 'react';
+import { Recipe } from '@/app/types/domain/recipe/recipe';
+import { fetchRecipes } from '@/app/api/spoonacular';
 
-const TrendingRecipesSection = () => {
-    const { data, loading, loadRecipes } = useFetchRecipes();
+const TrendingRecipesSection = async () => {
+  let data:Recipe[] = [];
+  let loading = false;
 
-    useEffect(() => {
-        loadRecipes("sort=popularity");
-    }, []);
+  try {
+    data = await fetchRecipes("sort=popularity"); // Call the Server Action
+  } catch (error) {
+    console.error(error);
+    loading = true; // Handle errors
+  }
 
-    return (
-        <div className='w-full xl:w-2/3 '>
-            <Grid type="recipe" loading={loading} headerText="Trending Recipes" data={data} cssClass={gridClasses.recipes} minDisplayItems={9} />
-        </div>
-    )
-}
+  return (
+    <div className='w-full xl:w-2/3 '>
+      <Grid
+        type="recipe"
+        loading={loading}
+        headerText="Trending Recipes"
+        data={data}
+        cssClass={gridClasses.recipes}
+        minDisplayItems={9}
+      />
+    </div>
+  );
+};
 
-export default TrendingRecipesSection
+export default TrendingRecipesSection;
