@@ -1,7 +1,6 @@
 import { useEffect, useReducer } from "react";
 import { fetchRecipeInformation } from "@/app/api/spoonacular";
 import { ACTION_TYPES } from "@/app/actionTypes/recipeDetailsActions";
-import { AxiosError } from "axios";
 import recipeDetailsReducer from "@/app/features/recipeInformation/reducers/recipeDetailsReducer";
 import { INITIAL_STATE } from "@/app/reducers/fetchReducers/initialState";
 import { handleError } from "@/app/reducers/fetchReducers/handleError";

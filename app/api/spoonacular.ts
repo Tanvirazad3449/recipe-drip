@@ -18,7 +18,7 @@ export const fetchBulkRecipes = async (arg: string): Promise<RecipeDetails[]> =>
   return await apiClient<RecipeDetails[]>(endpoint, 'GET');
 };
 
-export const fetchRecipes = async (arg: string): Promise<any[]> => {
+export const fetchRecipes = async (arg: string): Promise<Recipe[]> => {
   try {
     const endpoint = `/recipes/complexSearch?${arg}&apiKey=${API_KEY}&number=20`;
     const res: Recipes = await apiClient<Recipes>(endpoint, 'GET');
