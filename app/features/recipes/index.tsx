@@ -4,23 +4,21 @@ import { gridClasses } from '@/app/styles/gridClasses';
 import Grid from '@/app/components/shared/data-display/grid/Grid';
 import { useSearchParams } from 'next/navigation';
 import { useRecipes } from '@/app/hooks/useRecipes';
-import getRecipesUrl from './hooks/getRecipesUrl';
+import getRecipesUrl from './utils/getRecipesUrl';
 
 const Recipes: React.FC = () => {
   const searchParams = useSearchParams();
 
   const url = getRecipesUrl(searchParams);
 
-  const { data, loading, loadRecipes } = useRecipes();
+  const { data, loading, errorMsg } = useRecipes(url);
   const headingText = searchParams.get("diet") || searchParams.get("type") || searchParams.get("cuisine") || searchParams.get("includeIngredients");
 
-  useEffect(() => {
-    loadRecipes(url)
-  }, [])
 
   return (
     <div className="flex flex-col px-4 xl:px-28 md:px-8 py-4 min-h-screen">
       <Grid
+      errorMsg={errorMsg}
         type="recipe"
         loading={loading}
         headerText={headingText || ""}

@@ -1,5 +1,5 @@
 import { useEffect, useReducer } from "react";
-import { db, getSavedRecipes } from "../../../libs/firebase/config";
+import { db } from "../../../libs/firebase/config";
 import saveRecipeReducer from "../reducers/saveRecipeReducer";
 import { INITIAL_STATE } from "@/app/reducers/fetchReducers/initialState";
 import { ACTION_TYPES } from "@/app/actionTypes/recipeDetailsActions";
@@ -7,6 +7,7 @@ import { useAuth } from "@/app/contexts/UserContext";
 import { doc, setDoc, arrayUnion } from "firebase/firestore";
 import { useRouter } from "next/navigation";
 import { handleError } from "@/app/reducers/fetchReducers/handleError";
+import { fetchSavedRecipesIds } from "@/app/api/firebase";
 
 
 const useSaveRecipe = (recipeId: string) => {
@@ -22,7 +23,7 @@ const useSaveRecipe = (recipeId: string) => {
       try {
         dispatch({ type: ACTION_TYPES.FETCH_START });
 
-        const savedRecipes = await getSavedRecipes(user.uid);
+        const savedRecipes = await fetchSavedRecipesIds(user.uid);
         dispatch({
           type: ACTION_TYPES.FETCH_SUCCESS,
           payload: savedRecipes.includes(recipeId)
@@ -45,7 +46,7 @@ const useSaveRecipe = (recipeId: string) => {
       dispatch({ type: ACTION_TYPES.FETCH_START });
 
       const docRef = doc(db, "savedRecipes", user.uid);
-      const savedRecipes = await getSavedRecipes(user.uid);
+      const savedRecipes = await fetchSavedRecipesIds(user.uid);
 
       if (savedRecipes.includes(recipeId)) {
         // Unsave the recipe

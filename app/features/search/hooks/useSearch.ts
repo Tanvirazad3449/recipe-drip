@@ -13,8 +13,8 @@ export const useSearch = () => {
     const pathName = usePathname();
     const searchParams = useSearchParams()
 
-    const { data, loading, loadRecipes, setData, setLoading } = useRecipes();
     const [selectedValues, setSelectedValues] = useState<SearchFilterTypes>(defaultSelectedValues);
+    const { data, loading,errorMsg, setData, setLoading } = useRecipes(generateSearchUrl(selectedValues));
     const { value: isOpen, toggle: toggleDrawer } = useToggle();
 
     const debouncedFetch = useCallback(
@@ -22,7 +22,6 @@ export const useSearch = () => {
         debounce((selectedValues: SearchFilterTypes) => {
             if (selectedValues.query.length > 0) {
                 setLoading(true);
-                loadRecipes(generateSearchUrl(selectedValues));
                 router.push(pathName + "?" + generateSearchUrl(selectedValues))
 
             } else {
@@ -78,6 +77,7 @@ export const useSearch = () => {
         selectedValues,
         setSelectedValues,
         data,
+        errorMsg,
         isOpen,
         toggleDrawer,
         loading

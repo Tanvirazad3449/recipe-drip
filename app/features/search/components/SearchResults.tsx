@@ -7,13 +7,21 @@ interface SearchResultProps {
   isVisible: boolean;
   loading: boolean;
   data: Recipe[];
+  errorMsg: string | null;
 }
-function SearchResults({ isVisible, loading, data }: SearchResultProps) {
+function SearchResults({ isVisible, loading, data, errorMsg }: SearchResultProps) {
   return (
     <>
       {isVisible &&
         <div className='mt-8'>
-          <Grid type='recipe' headerText="Search Results" loading={loading} data={data} cssClass={gridClasses.recipes} minDisplayItems={9} />
+          <Grid 
+          errorMsg={errorMsg}
+          type='recipe' 
+          loading={loading} 
+          headerText="Search Results" 
+          data={data} 
+          cssClass={gridClasses.recipes} 
+          minDisplayItems={9} />
         </div>
       }
     </>

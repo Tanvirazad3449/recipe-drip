@@ -1,10 +1,9 @@
-
 import React from 'react';
-import BrandLine from '@/app/components/shared/layout/BrandLine';
 import CuisinesSection from './components/CuisinesSection';
 import TrendingRecipesSection from './components/TrendingRecipesSection';
 import MealTypesSection from './components/MealTypesSection';
 import DietsSection from './components/DietsSection';
+import BrandLine from '@/app/components/shared/data-display/BrandLine';
 
 export default function Home() {
   return (

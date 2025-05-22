@@ -5,7 +5,8 @@ import Grid from '@/app/components/shared/data-display/grid/Grid'
 
 const DietsSection = () => {
   return (
-    <Grid 
+    <Grid
+    errorMsg={null} 
     type="diet" 
     loading={false} 
     headerText="Diets" 

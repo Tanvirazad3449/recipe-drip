@@ -8,24 +8,9 @@ const axiosInstance = axios.create({
   },
 });
 
-// Add interceptors (optional)
-// axiosInstance.interceptors.request.use(
-//   (config) => {
-//     // Add Authorization or other custom headers
-//     const token = localStorage.getItem('token');
-//     if (token) {
-//       config.headers.Authorization = `Bearer ${token}`;
-//     }
-//     return config;
-//   },
-//   (error) => Promise.reject(error)
-// );
-
 axiosInstance.interceptors.response.use(
   (response) => response,
   (error) => {
-    // Handle errors globally
-    console.error('API Error:', error.response?.data || error.message);
     return Promise.reject(error);
   }
 );

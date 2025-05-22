@@ -2,7 +2,7 @@
 
 import { getAuth } from 'firebase/auth';
 
-import { getFirestore, doc, getDoc } from "firebase/firestore";
+import { getFirestore } from "firebase/firestore";
 
 import { initializeApp, getApps } from 'firebase/app';
 
@@ -21,14 +21,3 @@ const firebaseApp =
 
 export const auth = getAuth(firebaseApp);
 export const db = getFirestore(firebaseApp);
-
-export const getSavedRecipes = async (userId: string):Promise<string[]> => {
-  const docRef = doc(db, 'savedRecipes', userId);
-  const docSnap = await getDoc(docRef);
-  if (docSnap.exists()) {
-    return docSnap.data()?.savedRecipes || [];
-  } else {
-    console.log('No liked recipes found');
-    return [];
-  }
-};

@@ -6,6 +6,7 @@ import { gridClasses } from '@/app/styles/gridClasses'
 const MealTypesSection = () => {
   return (
      <Grid 
+     errorMsg={null}
      type="mealType" 
      loading={false} 
      headerText="Meal Types" 

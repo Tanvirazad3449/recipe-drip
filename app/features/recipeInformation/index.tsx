@@ -26,9 +26,13 @@ function RecipeInformation() {
         recipeDetails={recipeDetails.data}
         saved={isRecipeSaved.data}
         handleSave={toggleRecipeSave}
-        errorMessage={recipeDetails.errorMessage || similarError}
+        errorMessage={recipeDetails.errorMessage}
       />
-      <SimilarRecipesSection loading={loading} similarRecipes={similarRecipes} />
+      <SimilarRecipesSection 
+      loading={loading} 
+      similarRecipes={similarRecipes} 
+      errorMsg={similarError}
+      />
     </div>
   );
 };

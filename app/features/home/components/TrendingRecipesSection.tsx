@@ -6,18 +6,20 @@ import { fetchRecipes } from '@/app/api/spoonacular';
 
 const TrendingRecipesSection = async () => {
   let data:Recipe[] = [];
+  let error = null
   let loading = false;
 
   try {
     data = await fetchRecipes("sort=popularity"); // Call the Server Action
-  } catch (error) {
-    console.error(error);
-    loading = true; // Handle errors
+  } catch (e:any) {
+    error = e.message
+    loading = false; 
   }
 
   return (
     <div className='w-full xl:w-2/3 '>
       <Grid
+        errorMsg={error}
         type="recipe"
         loading={loading}
         headerText="Trending Recipes"

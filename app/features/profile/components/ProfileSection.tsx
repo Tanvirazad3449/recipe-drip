@@ -3,26 +3,14 @@ import { RegularText } from '@/app/components/ui/Texts'
 import { ImageIcon } from '@/app/components/ui/ImageIcon'
 import { Button } from '@/app/components/ui/Button'
 import { signOut } from "@/app/libs/firebase/auth";
-import { NotificationBlock } from '@/app/components/ui/NotificationBlock'
 import { useRouter } from 'next/navigation'
 import { useAuth } from '@/app/contexts/UserContext';
 
 function ProfileSection() {
 
-  const { user, loading } = useAuth();
   const router = useRouter();
+  const { user } = useAuth();
 
-  if (loading) {
-    return (
-      <NotificationBlock type='info' message="Checking if you are signed in..." />
-    );
-  }
-
-  if (!user) {
-    return (
-      <NotificationBlock type='error' message="You must be signed in to view this page." />
-    );
-  }
 
   const handleSignOut = async () => {
     await signOut();
@@ -33,8 +21,8 @@ function ProfileSection() {
 
       <div className="items-center flex justify-center flex-col">
         <RegularText>Welcome,</RegularText>
-        <RegularText className="mb-4">{user.displayName || user.email}</RegularText>
-        {user.photoURL && (<ImageIcon iconSrc={user.photoURL}/>)}
+        <RegularText className="mb-4">{user?.displayName || user?.email}</RegularText>
+        {user?.photoURL && (<ImageIcon iconSrc={user?.photoURL}/>)}
       </div>
 
       <Button onClick={handleSignOut} className="w-full mt-4 font-bold">

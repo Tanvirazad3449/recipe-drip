@@ -1,10 +1,8 @@
-import React from 'react'
-import Home from '../features/home'
+import { NextPage } from 'next';
+import Home from '../features/home';
 
-function page() {
-  return (
-    <Home/>
-  )
-}
+const Page: NextPage = () => {
+  return <Home />;
+};
 
-export default page
+export default Page;

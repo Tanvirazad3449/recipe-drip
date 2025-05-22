@@ -1,4 +1,5 @@
 "use server"
+import axios from "axios";
 import { Recipe, RecipeDetails, Recipes } from "../types/domain/recipe/recipe";
 import { apiClient } from "./apiClient";
 
@@ -14,8 +15,12 @@ export const fetchSimilarRecipes = async (recipeId: string): Promise<Recipe[]> =
 };
 
 export const fetchBulkRecipes = async (arg: string): Promise<RecipeDetails[]> => {
-  const endpoint = `/recipes/informationBulk?ids=${arg}&includeNutrition=false&apiKey=${API_KEY}`;
+  try{
+    const endpoint = `/recipes/informationBulk?ids=${arg}&includeNutrition=false&apiKey=${API_KEY}`;
   return await apiClient<RecipeDetails[]>(endpoint, 'GET');
+  } catch(e:any){
+    throw new Error(e);
+  }
 };
 
 export const fetchRecipes = async (arg: string): Promise<Recipe[]> => {
@@ -23,8 +28,7 @@ export const fetchRecipes = async (arg: string): Promise<Recipe[]> => {
     const endpoint = `/recipes/complexSearch?${arg}&apiKey=${API_KEY}&number=20`;
     const res: Recipes = await apiClient<Recipes>(endpoint, 'GET');
     return res.results; // Return the results directly
-  } catch (error) {
-    console.error('Error fetching recipes:', error);
-    throw new Error('Failed to fetch recipes');
+  } catch (error:any) {
+    throw new Error(error);
   }
 };

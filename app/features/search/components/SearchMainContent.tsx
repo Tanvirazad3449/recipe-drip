@@ -11,9 +11,10 @@ interface SearchMainContentProps {
   loading: boolean;
   setSelectedValues: React.Dispatch<React.SetStateAction<SearchFilterTypes>>
   data: Recipe[];
+  errorMsg: string | null;
 }
 
-function SearchMainContent({ toggleDrawer, selectedValues, loading, setSelectedValues, data }: SearchMainContentProps) {
+function SearchMainContent({ toggleDrawer, selectedValues, loading, setSelectedValues, data, errorMsg }: SearchMainContentProps) {
   return (
     <div className="flex flex-col w-full xl:w-3/4 py-4 xl:py-8 xl:p-8 min-h-screen">
       <HeadingText className='mb-2 xl:mb-6'>Search</HeadingText>
@@ -24,6 +25,7 @@ function SearchMainContent({ toggleDrawer, selectedValues, loading, setSelectedV
       />
       <SearchResults
         loading={loading}
+        errorMsg={errorMsg}
         isVisible={selectedValues.query.length > 0}
         data={data}
       />

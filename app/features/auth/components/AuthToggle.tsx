@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import PropTypes from "prop-types";
 import { RegularText } from "@/app/components/ui/Texts";
 
 interface AuthToggleProps {
@@ -20,10 +19,4 @@ const AuthToggle: React.FC<AuthToggleProps> = ({ isSignInMode, onToggle }) => {
 
   );
 };
-
-AuthToggle.propTypes = {
-  isSignInMode: PropTypes.bool.isRequired,
-  onToggle: PropTypes.func.isRequired,
-};
-
 export default AuthToggle;

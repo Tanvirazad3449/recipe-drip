@@ -11,6 +11,7 @@ const Search: React.FC = () => {
         setSelectedValues,
         data,
         loading,
+        errorMsg,
         isOpen,
         toggleDrawer,
     } = useSearch();
@@ -29,6 +30,7 @@ const Search: React.FC = () => {
                 toggleDrawer={toggleDrawer}
                 loading={loading}
                 data={data}
+                errorMsg={errorMsg}
             />
         </div>
     )

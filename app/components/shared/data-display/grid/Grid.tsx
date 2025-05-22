@@ -15,16 +15,19 @@ import { useToggle } from "@/app/hooks/useToggle";
 type GridProps<T> = {
   headerText: string;
   data: T[];
+  errorMsg: string | null;
   cssClass: string;
   minDisplayItems: number;
   loading: boolean;
   type: "recipe" | "diet" | "mealType";
 };
 
-const Grid = ({ headerText, data, cssClass, minDisplayItems, loading, type }: GridProps<DietType | MealType | Recipe>) => {
+const Grid = ({ headerText, data, cssClass, errorMsg, minDisplayItems, loading, type }: GridProps<DietType | MealType | Recipe>) => {
   const { value: isExpanded, toggle: setIsExpanded } = useToggle();
   const itemsToShow = isExpanded ? data : data.slice(0, minDisplayItems);
-
+  if (errorMsg) {
+    return <NotificationBlock type="error" message={errorMsg} />
+  }
   const renderGridItem = (gridObj: DietType | MealType | Recipe) => {
     switch (type) {
       case "diet":
@@ -43,19 +46,19 @@ const Grid = ({ headerText, data, cssClass, minDisplayItems, loading, type }: Gr
         headerText={headerText}
         setIsExpanded={setIsExpanded}
         isExpanded={isExpanded}
-        showExpandButton={true}
+        showExpandButton={data.length > 2}
       />
       <div>
         {loading ?
-          <div className={cssClass}><GridSkeleton numItems={12}/></div>
+          <div className={cssClass}><GridSkeleton numItems={12} /></div>
           :
           <>
             {data.length > 0 ?
-                <div className={cssClass}>
-                  {itemsToShow.map(renderGridItem)}
-                </div>
-                :
-                <NotificationBlock type="info" message="No recipes found" />
+              <div className={cssClass}>
+                {itemsToShow.map(renderGridItem)}
+              </div>
+              :
+              <NotificationBlock type="info" message="No recipes found" />
             }
           </>
         }

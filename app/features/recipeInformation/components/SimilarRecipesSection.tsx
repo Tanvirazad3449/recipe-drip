@@ -5,11 +5,13 @@ import Grid from '@/app/components/shared/data-display/grid/Grid';
 interface SimilarRecipesSectionProps {
   similarRecipes: Recipe[],
   loading: boolean;
+  errorMsg: string | null;
 }
-function SimilarRecipesSection({ similarRecipes, loading }: SimilarRecipesSectionProps) {
+function SimilarRecipesSection({ similarRecipes, errorMsg, loading }: SimilarRecipesSectionProps) {
   return (
     <div className="mt-4 w-full xl:w-1/3 xl:mt-1">
       <Grid
+        errorMsg={errorMsg}
         type="recipe"
         loading={loading}
         headerText="Similar Recipes"

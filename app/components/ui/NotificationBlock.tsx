@@ -28,7 +28,7 @@ const Notification: React.FC<NotificationBlockProps> = ({ message, type }) => {
   );
 };
 
-const NotificationBlock = withDelay(Notification, 1000)
+const NotificationBlock = withDelay(Notification, 200)
 
 export  {
   NotificationBlock
