@@ -13,8 +13,12 @@ export const useRecipes = (url: string) => {
     try {
       const data = await fetchRecipes(url);
       setData(data);
-    } catch (err:any) {
-      setErrorMsg(err.message || "Search failed")
+    } catch (err) {
+      if (err instanceof Error) {
+        setErrorMsg(err.message);
+      } else {
+        setErrorMsg("Something went wrong");
+      }
     } finally {
       setLoading(false);
     }

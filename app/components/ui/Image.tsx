@@ -26,6 +26,7 @@ const Image = ({ imageSrc, className = "", size = "medium" }: ImageProps) => {
   return (
     <img
       src={imageSrc}
+      alt={imageSrc}
       className={imageClassNames[size]}
       onError={() => setIsDeadLink(true)}
     />

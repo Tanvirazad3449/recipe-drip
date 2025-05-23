@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect } from 'react';
+import React from 'react';
 import { gridClasses } from '@/app/styles/gridClasses';
 import Grid from '@/app/components/shared/data-display/grid/Grid';
 import { useSearchParams } from 'next/navigation';

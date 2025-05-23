@@ -7,7 +7,7 @@ export const fetchSavedRecipesIds = async (userId: string): Promise<string[]> =>
         const docSnap = await getDoc(docRef);
         return docSnap.data()?.savedRecipes || [];
 
-    } catch (error: any) {
+    } catch (error) {
         throw error
     }
 };

@@ -23,8 +23,12 @@ const useSavedRecipes = () => {
             }else{
                 setLoading(false)
             }
-        } catch (err:any) {
-            setErrorMsg(err.message);
+        } catch (err) {
+            if (err instanceof Error) {
+                setErrorMsg(err.message);
+              } else {
+                setErrorMsg("Something went wrong");
+              }
             setLoading(false);
         }
     };

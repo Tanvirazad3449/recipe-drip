@@ -10,9 +10,13 @@ const TrendingRecipesSection = async () => {
   let loading = false;
 
   try {
-    data = await fetchRecipes("sort=popularity"); // Call the Server Action
-  } catch (e:any) {
-    error = e.message
+    data = await fetchRecipes("sort=popularity"); 
+  } catch (e) {
+    if (e instanceof Error) {
+      error = e.message;
+    } else {
+      error = "Something went wrong";
+    }
     loading = false; 
   }
 

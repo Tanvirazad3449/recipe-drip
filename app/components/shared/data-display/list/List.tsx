@@ -37,21 +37,3 @@ const List = ({ headerText, data, type }: ListProps<CuisineType | IngredientDeta
 
 
 export default List
-
-
-// app/types/
-// ├── auth/
-// │   └── user.ts               // (previously FirebaseAuthUser.ts)
-// │
-// ├── common/
-// │   ├── components.ts         // (previously TextProps.ts)
-// │   └── grid.ts              // For any grid-related types
-// │
-// ├── domain/
-// │   └── recipe/
-// │       ├── attributes.ts     // Combine all attributes in one file
-// │       ├── ingredients.ts    // Combine ingredient types
-// │       └── recipe.ts        // Main recipe type
-// │
-// └── search/
-//     └── filters.ts           // (previously SearchFilterType.ts)
